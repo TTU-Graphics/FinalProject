@@ -424,6 +424,11 @@ int main( int argc, char **argv )
   glutInitWindowSize( winHeight, winWidth );
   glutCreateWindow( "3D Menger Sponge" );
 
+#ifndef __APPLE__
+  glewExperimental = GL_TRUE;
+  glewInit();
+#endif
+
   init();
 
   glutDisplayFunc(display);
