@@ -12,3 +12,6 @@
 
 # vim swap files
 *.swp
+
+# Mac compiled project
+FinalProject/menger
