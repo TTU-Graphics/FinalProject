@@ -1,0 +1,6 @@
+
+
+This program is disigned to compile and run on a Mac OS X Lion. I did not have to perform any changes to the stock system in order to compile and run this program.
+
+
+To compile, simply use `make`. It will create a file ./menger. To run, simply call ./menger.
