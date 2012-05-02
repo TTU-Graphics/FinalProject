@@ -70,15 +70,15 @@ void ObjModel::buildModel() {
           &v1, &t1, &n1,
           &v2, &t2, &n2,
           &v3, &t3, &n3);
-      verts.push_back(colVerts[v1]);
-      verts.push_back(colVerts[v2]);
-      verts.push_back(colVerts[v3]);
-      tex.push_back(colTex[t1]);
-      tex.push_back(colTex[t2]);
-      tex.push_back(colTex[t3]);
-      norms.push_back(colNorms[n1]);
-      norms.push_back(colNorms[n2]);
-      norms.push_back(colNorms[n3]);
+      verts.push_back(colVerts[v1-1]);
+      verts.push_back(colVerts[v2-1]);
+      verts.push_back(colVerts[v3-1]);
+      tex.push_back(colTex[t1-1]);
+      tex.push_back(colTex[t2-1]);
+      tex.push_back(colTex[t3-1]);
+      norms.push_back(colNorms[n1-1]);
+      norms.push_back(colNorms[n2-1]);
+      norms.push_back(colNorms[n3-1]);
     }
   }
   fclose(objFile);
