@@ -8,6 +8,7 @@
 #include "../shadedModel.h"
 #include "../sphere.h"
 #include "../texTri.h"
+#include "../objModel.h"
 //animation
 #include "../animation/animation.h"
 #include "../animation/orbitalModel.h"

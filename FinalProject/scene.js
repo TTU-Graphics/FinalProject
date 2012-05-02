@@ -2,11 +2,13 @@
   "models": [
     {
       "type": "model",
-      "class": "Menger",
       "id": "sponge",
+      /*"class": "Menger",
       "center": [0,0,0],
       "radius": 1,
-      "subdivisions": 2
+      "subdivisions": 2*/
+      "class": "ObjModel",
+      "objfile": "objects/WizardHat.obj"
     },
     {
       "type": "model",
@@ -37,13 +39,13 @@
       "ambient": [0.1,0.7,0.1,1],
       "diffuse": [0.2,1,0.2,1],
       "specular": [0,0,0,1]
-    },
+    }/*,
     {
       "type": "model",
       "class": "TexTri",
       "id": "textri",
       "texture": "uv_checker.png"
-    }
+    }*/
   ],
   "animations": [
     {
@@ -64,13 +66,13 @@
       "distance": 5.6,
       "theta": -20,
       "phi": 0 
-    }, {
+    }/*, {
       "center": "sponge",
       "orbiter": "textri",
       "distance": 7.5,
       "theta": 0,
       "phi": 50
-    }
+    }*/
   ],
   "lights": [
     {

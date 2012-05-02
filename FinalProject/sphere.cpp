@@ -110,11 +110,14 @@ void Sphere::subdivideTri(int subdivs, vec4 p1, vec4 p2, vec4 p3,
         scale * p1,
         scale * p2,
         scale * p3);
-    vec4 normal = vec4(normalize(cross(p2-p1, p3-p2)),0);
+    normals[ptsIndex+0] = normalize(p1);
+    normals[ptsIndex+1] = normalize(p1);
+    normals[ptsIndex+2] = normalize(p1);
+    /*vec4 normal = vec4(normalize(cross(p2-p1, p3-p2)),0);
     //printVec("normal",normal);
     for(int i=ptsIndex;i<ptsIndex+3;i++) {
       normals[i] = normal;
-    }
+    }*/
     ptsIndex += 3;
   }
 }

@@ -29,6 +29,7 @@ class GLSLProgram {
     GLuint program;
     char* buffer;
     const char* name;
+    GLenum activeTex;
 
     //functions
     GLint getUnifLoc();

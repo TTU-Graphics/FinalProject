@@ -1,6 +1,6 @@
 menger : main.cpp InitShader.cpp \
 		model.o shadedModel.o \
-		menger.o colorTri.o sphere.o shadedTri.o texTri.o \
+		menger.o colorTri.o sphere.o shadedTri.o texTri.o objModel.o \
 		light.o \
 		helpers.o glslprogram.o \
 		scene/scene.o scene/groupNode.o \
@@ -9,7 +9,7 @@ menger : main.cpp InitShader.cpp \
 	g++ -w \
 		main.cpp InitShader.cpp \
 		model.o shadedModel.o \
-		menger.o colorTri.o sphere.o shadedTri.o texTri.o \
+		menger.o colorTri.o sphere.o shadedTri.o texTri.o objModel.o \
 		light.o \
 		animation/orbitalModel.o animation/animator.o animation/animation.o \
 		helpers.o glslprogram.o \
@@ -41,6 +41,9 @@ sphere.o: sphere.h sphere.cpp
 
 texTri.o: texTri.h texTri.cpp
 	g++ -c texTri.cpp -o texTri.o
+
+objModel.o: objModel.h objModel.cpp
+	g++ -c objModel.cpp -o objModel.o
 #}}}
 #{{{ lights
 light.o: light.h light.cpp

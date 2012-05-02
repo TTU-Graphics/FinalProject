@@ -211,6 +211,8 @@ Model* Scene::buildModel(Json::Value model) {
   } else if(type.compare("TexTri") == 0) {
     retModel = new TexTri(model["texture"].asString().c_str());
     printf("created textri\n");
+  } else if(type.compare("ObjModel") == 0) {
+    retModel = new ObjModel(model["objfile"].asString().c_str());
   }
 
   // map model if it has an id
