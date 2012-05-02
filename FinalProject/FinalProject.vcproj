@@ -205,6 +205,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\objModel.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\shadedModel.cpp"
 				>
 			</File>
@@ -296,6 +300,10 @@
 			</File>
 			<File
 				RelativePath=".\model.h"
+				>
+			</File>
+			<File
+				RelativePath=".\objModel.h"
 				>
 			</File>
 			<File
