@@ -6,6 +6,7 @@ vsprintf(buffer, format, args);\
 va_end(args);\
 glUseProgram(program);
 
+int GLSLProgram::GTexNum = 0;
 GLSLProgram::GLSLProgram(const char* vShader, const char* fShader,
     const char* name) {
   program = InitShader(vShader, fShader);
@@ -97,18 +98,29 @@ GLint GLSLProgram::getAttribLoc() {
   return glGetAttribLocation(program, buffer);
 }
 
-void GLSLProgram::setTexture(const char* imgFile, GLenum glTex, int texNum,
-    const char* format, ...) {
+GLuint GLSLProgram::setTexture(const char* imgFile, const char* format, ...) {
   getBuffer();
 
-  GLuint tex = SOIL_load_OGL_texture(
+  texNum = GTexNum;
+  GTexNum++;
+
+  activeTex = SOIL_load_OGL_texture(
       imgFile,
       SOIL_LOAD_AUTO,
       SOIL_CREATE_NEW_ID,
       SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB |
         SOIL_FLAG_COMPRESS_TO_DXT);
+  printf("ActiveTex = %d\n",activeTex);
+  printf("texNum = %d\n",texNum);
 
-  glActiveTexture(glTex);
-  glBindTexture(GL_TEXTURE_2D, tex);
+  glActiveTexture(GL_TEXTURE0 + texNum);
+  glBindTexture(GL_TEXTURE_2D, activeTex);
   glUniform1i(glGetUniformLocation(program,buffer), texNum);
+
+  return activeTex;
+}
+
+void GLSLProgram::bindTexture() {
+  glActiveTexture(GL_TEXTURE0 + texNum);
+  glBindTexture(GL_TEXTURE_2D, activeTex);
 }

@@ -124,9 +124,10 @@ void ObjModel::buildModel() {
 
   // set texture image
   printf("\ttexture file \"%s\"\n",texFile);
-  prog->setTexture(texFile,GL_TEXTURE1,1,"Texture");
+  prog->setTexture(texFile,"Texture");
 }
 
 void ObjModel::preRender() {
   glActiveTexture(GL_TEXTURE1);
+  prog->bindTexture();
 }

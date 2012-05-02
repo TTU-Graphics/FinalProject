@@ -31,7 +31,7 @@ void TexTri::buildModel() {
       vertexCount,tex,"vTexture");
 
   printf("setting texture=%s\n",texture);
-  prog->setTexture(texture,GL_TEXTURE0,0,"Texture");
+  prog->setTexture(texture,"Texture");
   //prog->setTexture("uv_checker.png",GL_TEXTURE0,0,"Texture");
 
   delete[] points;

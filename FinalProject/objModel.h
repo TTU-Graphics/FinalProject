@@ -22,6 +22,7 @@ class ObjModel: public Model {
     vector<vec3> colNorms, norms;
     char* textureFile;
     const char* objFileName;
+    GLuint glTex;
 };
 
 #endif

@@ -56,9 +56,11 @@ void Model::bindModel() {
 
 void Model::render() {
   bindModel();
+  preRender();
   if(!customRender()) {
     glDrawArrays(GL_TRIANGLES, 0, vertexCount);
   }
+  postRender();
   glError(name,"Model render");
   unbindModel();
 }

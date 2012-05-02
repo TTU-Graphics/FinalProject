@@ -20,9 +20,10 @@ class GLSLProgram {
     void setBuffer(GLuint, GLvoid*, GLenum, int, vec4*, const char*, ...);
     void setBuffer(GLuint, GLvoid*, GLenum, int, vec3*, const char*, ...);
     void setBuffer(GLuint, GLvoid*, GLenum, int, vec2*, const char*, ...);
-    void setTexture(const char*, GLenum, int, const char*, ...);
+    GLuint setTexture(const char*, const char*, ...);
     void getUniform(GLfloat*, const char*, ...);
     void getUniform(GLint*, const char*, ...);
+    void bindTexture();
     //GLint getLoc(const char*, ...);
 
   private:
@@ -30,6 +31,8 @@ class GLSLProgram {
     char* buffer;
     const char* name;
     GLenum activeTex;
+    int texNum;
+    static int GTexNum;
 
     //functions
     GLint getUnifLoc();
