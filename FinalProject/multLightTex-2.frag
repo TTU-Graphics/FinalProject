@@ -32,8 +32,7 @@ void main()
   
   // Setup transform to tangentspace
   mat3 TBN = mat3(T,B,N);
-  //mat3 TBN = transpose( mat3(T,B,N) );
-  E = TBN * N;
+  E = TBN * E;
   N = normalize(texture2D( NormalMap, vTex ).rgb*2.0 - 1.0);
 
   vec4 ambient = vec4(0,0,0,0),
@@ -59,6 +58,6 @@ void main()
 
   gl_FragColor = ambient + diffuse + specular;
   gl_FragColor.a = 1.0;
-  gl_FragColor = texture2D(NormalMap, vTex);
+  gl_FragColor *= texture2D(Texture, vTex);
 } 
 
