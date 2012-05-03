@@ -166,7 +166,7 @@ void ObjModel::buildModel() {
   }
 
   // set shininess
-  glUniform1f( glGetUniformLocation(program, "Shininess"), 10.0);
+  glUniform1f( glGetUniformLocation(program, "Shininess"), 1.0);
 
   // set texture image
   printf("\ttexture file \"%s\"\n",texFile);
