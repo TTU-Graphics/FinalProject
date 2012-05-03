@@ -110,6 +110,7 @@ GLuint GLSLProgram::setTexture(const char* imgFile, const char* format, ...) {
       SOIL_CREATE_NEW_ID,
       SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB |
         SOIL_FLAG_COMPRESS_TO_DXT);
+  printf("buffer = %s\n",buffer);
   printf("ActiveTex = %d\n",activeTex);
   printf("texNum = %d\n",texNum);
 

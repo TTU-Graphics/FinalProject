@@ -9,6 +9,6 @@ Ni 1.000000
 d 1.000000
 illum 2
 map_Kd textures/WizardHatWireTexture.png
-map_Bump testures/WizardHatNormalMap.png
+map_Bump textures/WizardHatNormalMap.png
 
 

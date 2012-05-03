@@ -8,7 +8,7 @@
       "radius": 1,
       "subdivisions": 2*/
       "class": "ObjModel",
-      "objfile": "objects/WizardHat.obj",
+      "objfile": "objects/WizardHatNormal.obj",
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
