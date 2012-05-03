@@ -31,7 +31,8 @@ void main()
   vec3 L[nLights];
   
   // Setup transform to tangentspace
-  mat3 TBN = transpose( mat3(T,B,N) );
+  mat3 TBN = mat3(T,B,N);
+  //mat3 TBN = transpose( mat3(T,B,N) );
   E = TBN * N;
   N = normalize(texture2D( NormalMap, vTex ).rgb*2.0 - 1.0);
 

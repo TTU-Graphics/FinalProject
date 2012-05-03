@@ -102,6 +102,7 @@ GLuint GLSLProgram::setTexture(const char* imgFile, const char* format, ...) {
   getBuffer();
 
   texNum = GTexNum;
+  textureNums.push_back(GTexNum);
   GTexNum++;
 
   activeTex = SOIL_load_OGL_texture(
@@ -110,6 +111,7 @@ GLuint GLSLProgram::setTexture(const char* imgFile, const char* format, ...) {
       SOIL_CREATE_NEW_ID,
       SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB |
         SOIL_FLAG_COMPRESS_TO_DXT);
+  activeTextures.push_back(activeTex);
   printf("buffer = %s\n",buffer);
   printf("ActiveTex = %d\n",activeTex);
   printf("texNum = %d\n",texNum);
@@ -122,6 +124,10 @@ GLuint GLSLProgram::setTexture(const char* imgFile, const char* format, ...) {
 }
 
 void GLSLProgram::bindTexture() {
-  glActiveTexture(GL_TEXTURE0 + texNum);
-  glBindTexture(GL_TEXTURE_2D, activeTex);
+  /*glActiveTexture(GL_TEXTURE0 + texNum);
+  glBindTexture(GL_TEXTURE_2D, activeTex);//*/
+  for(int i=0; i<textureNums.size(); i++) {
+    glActiveTexture(GL_TEXTURE0 + textureNums[i]);
+    glBindTexture(GL_TEXTURE_2D, activeTextures[i]);
+  }//*/
 }

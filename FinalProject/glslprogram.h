@@ -3,8 +3,11 @@
 
 #include "Angel.h"
 #include <stdarg.h>
+#include <vector>
 #include "helpers.h"
 #include "SOIL.h"
+
+using namespace std;
 
 class GLSLProgram {
   public:
@@ -32,6 +35,10 @@ class GLSLProgram {
     const char* name;
     GLenum activeTex;
     int texNum;
+    vector<int> textureNums;
+    vector<GLuint> activeTextures;
+
+    //static variables
     static int GTexNum;
 
     //functions
