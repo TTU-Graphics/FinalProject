@@ -445,6 +445,22 @@
 				>
 			</File>
 			<File
+				RelativePath=".\multLightTex.frag"
+				>
+			</File>
+			<File
+				RelativePath=".\multLightTex.vert"
+				>
+			</File>
+			<File
+				RelativePath=".\scene.js"
+				>
+			</File>
+			<File
+				RelativePath=".\scene2.js"
+				>
+			</File>
+			<File
 				RelativePath=".\singleLight-genelle.frag"
 				>
 			</File>

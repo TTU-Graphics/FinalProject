@@ -212,7 +212,17 @@ Model* Scene::buildModel(Json::Value model) {
     retModel = new TexTri(model["texture"].asString().c_str());
     printf("created textri\n");
   } else if(type.compare("ObjModel") == 0) {
-    retModel = new ObjModel(model["objfile"].asString().c_str());
+    ObjModel *obj = new ObjModel(model["objfile"].asString().c_str(),
+                            lights.size(),
+                            getVec4(model.get("ambient","[1,1,1,1]")),
+                            getVec4(model.get("diffuse","[1,1,1,1]")),
+                            getVec4(model.get("specular","[1,1,1,1]")));
+    vector<Light*>::iterator it;
+    int light = 0;
+    for(it = lights.begin(); it != lights.end(); it++) {
+      obj->setLight((*it), light++);
+	  retModel = obj;
+	}
   }
 
   // map model if it has an id

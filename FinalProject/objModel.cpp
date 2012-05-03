@@ -1,16 +1,17 @@
 #include "objModel.h"
 
-ObjModel::ObjModel(const char* objFile) {
+ObjModel::ObjModel(const char* objFile,
+	      int numLights, vec4 ambient, vec4 diffuse, vec4 specular)
+		    : ShadedModel(numLights, ambient, diffuse, specular) {
   objFileName = objFile;
   bufferCount = 2;//3; //verticies, normals, textures
   // init vertex count when building
-
-  
-  /*buildLightShader("multLightTex",buildString("multLightTex-%d",numLights),numLights);
+  buildLightShader("multLightTex",buildString("multLightTex-%d",numLights),numLights);
   vShader = buildString("multLightTex-%d.vert",numLights);
-  fShader = buildString("multLightTex-%d.frag",numLights);*/
-  vShader = "texture.vert";
-  fShader = "texture.frag";
+  fShader = buildString("multLightTex-%d.frag",numLights);
+  //vShader = "texture.vert";
+  //fShader = "texture.frag";
+
 
   init();
 }
@@ -121,6 +122,13 @@ void ObjModel::buildModel() {
       //TODO: implement Ks
     }
   }
+
+  // set lighting parameters
+  ambientProduct = glGetUniformLocation(program, "AmbientProduct");
+  diffuseProduct = glGetUniformLocation(program, "DiffuseProduct");
+  specularProduct = glGetUniformLocation(program, "SpecularProduct");
+  lightPosition = glGetUniformLocation(program, "LightPosition");
+  glUniform1f( glGetUniformLocation(program, "Shininess"), 100.0);
 
   // set texture image
   printf("\ttexture file \"%s\"\n",texFile);
