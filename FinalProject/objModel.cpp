@@ -86,30 +86,30 @@ void ObjModel::buildModel() {
       norms.push_back(colNorms[n1-1]);
       norms.push_back(colNorms[n2-1]);
       norms.push_back(colNorms[n3-1]);
-	  q1x = colVerts[v2-1].x - colVerts[v1-1].x;
-	  q1y = colVerts[v2-1].y - colVerts[v1-1].y;
-	  q1z = colVerts[v2-1].z - colVerts[v1-1].z;
-	  q2x = colVerts[v3-1].x - colVerts[v1-1].x;
-	  q2y = colVerts[v3-1].y - colVerts[v1-1].y;
-	  q2z = colVerts[v3-1].z - colVerts[v1-1].z;
-	  tex1s = colTex[v2-1].x - colTex[v1-1].x;
-	  tex1t = colTex[v2-1].y - colTex[v1-1].y;
-	  tex2s = colTex[v3-1].x - colTex[v1-1].x;
-	  tex2t = colTex[v3-1].y - colTex[v1-1].y;
-	  det = 1.0 / ( tex1s*tex2t - tex1t*tex2s );
+      q1x = colVerts[v2-1].x - colVerts[v1-1].x;
+      q1y = colVerts[v2-1].y - colVerts[v1-1].y;
+      q1z = colVerts[v2-1].z - colVerts[v1-1].z;
+      q2x = colVerts[v3-1].x - colVerts[v1-1].x;
+      q2y = colVerts[v3-1].y - colVerts[v1-1].y;
+      q2z = colVerts[v3-1].z - colVerts[v1-1].z;
+      tex1s = colTex[v2-1].x - colTex[v1-1].x;
+      tex1t = colTex[v2-1].y - colTex[v1-1].y;
+      tex2s = colTex[v3-1].x - colTex[v1-1].x;
+      tex2t = colTex[v3-1].y - colTex[v1-1].y;
+      det = 1.0 / ( tex1s*tex2t - tex1t*tex2s );
 
-	  t = det * vec3( tex2t*q1x - tex1t*q2x,
-		              tex2t*q1y - tex1t*q2y,
-					  tex2t*q1z - tex1t*q2z );
-	  b = det * vec3( -tex2s*q1x + tex1s*q2x,
-		              -tex2s*q1y + tex1s*q2y,
-					  -tex2s*q1z + tex1s*q2z );
-	  tans.push_back(t);
-	  tans.push_back(t);
-	  tans.push_back(t);
-	  bitans.push_back(b);
-	  bitans.push_back(b);
-	  bitans.push_back(b);
+      t = det * vec3( tex2t*q1x - tex1t*q2x,
+          tex2t*q1y - tex1t*q2y,
+          tex2t*q1z - tex1t*q2z );
+      b = det * vec3( -tex2s*q1x + tex1s*q2x,
+          -tex2s*q1y + tex1s*q2y,
+          -tex2s*q1z + tex1s*q2z );
+      tans.push_back(t);
+      tans.push_back(t);
+      tans.push_back(t);
+      bitans.push_back(b);
+      bitans.push_back(b);
+      bitans.push_back(b);
     }
   }
   fclose(objFile);
