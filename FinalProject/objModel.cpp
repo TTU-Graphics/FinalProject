@@ -96,7 +96,7 @@ void ObjModel::buildModel() {
 	  tex1t = colTex[v2-1].y - colTex[v1-1].y;
 	  tex2s = colTex[v3-1].x - colTex[v1-1].x;
 	  tex2t = colTex[v3-1].y - colTex[v1-1].y;
-	  det = 1.0 / ( tex1s*tex2t - tex1t*tex2s );
+	  det = -1.0 / ( tex1s*tex2t - tex1t*tex2s );
 
 	  t = det * vec3( tex2t*q1x - tex1t*q2x,
 		              tex2t*q1y - tex1t*q2y,
