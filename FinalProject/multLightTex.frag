@@ -23,16 +23,10 @@ void main()
 { 
   // Normalize the input lighting vectors
   vec3 N = normalize(fN);
-  vec3 T = normalize(fT);
-  vec3 B = normalize(fB);
-  vec3 E = -normalize(fE);
-  //vec3 L = normalize(fL);
+  vec3 E = normalize(fE);
   vec3 L[nLights];
   
-  // Setup transform to tangentspace
-  mat3 TBN = mat3(T,B,N);
-  E = TBN * E;
-  N = normalize(texture2D( NormalMap, vTex ).rgb*2.0 - 1.0);
+  N = normalize(texture2D( NormalMap, vTex ));
 
   vec4 ambient = vec4(0,0,0,0),
     diffuse = vec4(0,0,0,0),
@@ -42,7 +36,7 @@ void main()
     ambient += lights[i].AmbientProduct;
 
     // Bring L into tangent space
-    L[i] = TBN*normalize(fL[i]);
+    L[i] = normalize(fL[i]);
 
     vec3 H = normalize(L[i] + E);
 
@@ -57,6 +51,7 @@ void main()
 
   gl_FragColor = ambient + diffuse + specular;
   gl_FragColor.a = 1.0;
+//  gl_FragColor = vec4(T, 1);
   gl_FragColor *= texture2D(Texture, vTex);
 } 
 
