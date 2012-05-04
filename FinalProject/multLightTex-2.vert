@@ -1,14 +1,10 @@
 const int nLights = 2;
 attribute vec4 vPosition;
 attribute vec4 vNormal;
-attribute vec3 vTangent;
-attribute vec3 vBitangent;
 attribute vec2 vTexture;
 
 // output values that will be interpretated per-fragment
 varying vec3 fN;
-varying vec3 fT;
-varying vec3 fB;
 varying vec3 fE;
 varying vec3 fL[nLights];
 
@@ -28,9 +24,7 @@ varying vec2 vTex;
 
 void main()
 {
-  fN = NormalMatrix * vNormal.xyz;
-  fT = NormalMatrix * vTangent.xyz;
-  fB = NormalMatrix * vBitangent.xyz;
+  fN = normalize(NormalMatrix * vNormal.xyz);
   fE = (ModelView*vPosition).xyz;
 
   for(int i=0; i<nLights; i++) {
@@ -39,7 +33,10 @@ void main()
     } else {
       fL[i] = (lights[i].Position).xyz;
     }
+    fL[i] = normalize(fL[i]);
   }
+  
+  fE = normalize(-fE);
 
   vTex = vTexture;
   gl_Position = Projection*WorldMatrix*ModelView*vPosition;

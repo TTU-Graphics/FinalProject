@@ -429,6 +429,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\mkglslbookNormal.frag"
+				>
+			</File>
+			<File
+				RelativePath=".\mkglslbookNormal.vert"
+				>
+			</File>
+			<File
 				RelativePath=".\multLight.frag"
 				>
 			</File>
