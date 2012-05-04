@@ -1,0 +1,14 @@
+# Blender MTL File: 'rubyFace.blend'
+# Material Count: 1
+newmtl Material_redvelvet.jpeg
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.911380 0.000000 0.090748
+Ks 0.020000 0.020000 0.020000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Users/mikekent/Dropbox/classes/Computer Graphics/hw/FinalProject/FinalProject/blends/textures/redvelvet.jpeg
+map_Bump /Users/mikekent/Dropbox/classes/Computer Graphics/hw/FinalProject/FinalProject/blends/textures/redvelvet_normal.jpeg
+
+
