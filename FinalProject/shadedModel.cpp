@@ -46,6 +46,7 @@ void ShadedModel::setLight(Light* light, int index) {
   prog->setUniform(light->getDirection(), "lights[%d].Direction", index);
   prog->setUniform(light->getAngle(), "lights[%d].Angle", index);
   updateLightPositions();
+  
 }
 
 void ShadedModel::updateLightPositions() {
@@ -60,3 +61,4 @@ void ShadedModel::updateLightPositions() {
     }
   }
 }
+
