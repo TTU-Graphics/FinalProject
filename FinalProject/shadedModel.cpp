@@ -42,8 +42,12 @@ void ShadedModel::setLight(Light* light, int index) {
   prog->setUniform(ambProduct, "lights[%d].AmbientProduct", index);
   prog->setUniform(difProduct, "lights[%d].DiffuseProduct", index);
   prog->setUniform(specProduct, "lights[%d].SpecularProduct", index);
-  prog->setUniform(light->getPosition(), "lights[%d].Position", index);
+  prog->setUniform(light->getPosition(), "lights[%d].Position", index);//*/
   updateLightPositions();
+  
+  /*if(hasAllLights) {
+    updateMaterialProducts();
+  }*/
 }
 
 void ShadedModel::updateLightPositions() {
@@ -58,3 +62,25 @@ void ShadedModel::updateLightPositions() {
     }
   }
 }
+
+/*void ShadedModel::updateMaterialProducts() {
+  //don't update unless all lights have been added
+  if(!hasAllLights) {
+    return;
+  }
+
+  vec4 ambProduct, difProduct, specProduct;
+  Light *light;
+
+  for(int i=0; i<lights.size(); i++) {
+    light = lights[index];
+    ambProduct = lights[index]->getAmbient();
+    ambProduct *= materialAmbient;
+    difProduct = lights[index]->getDiffuse() * materialDiffuse;
+    specProduct = lights[index]->getSpecular() * materialSpecular;
+
+    prog->setUniform(ambProduct, "lights[%d].AmbientProduct", index);
+    prog->setUniform(difProduct, "lights[%d].DiffuseProduct", index);
+    prog->setUniform(specProduct, "lights[%d].SpecularProduct", index);
+  }
+}*/

@@ -22,6 +22,7 @@ class ShadedModel: public Model {
     bool hasAllLights;
     
     void updateLightPositions();
+    //void updateMaterialProducts();
 };
 
 #endif

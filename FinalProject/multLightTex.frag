@@ -26,7 +26,7 @@ void main()
   vec3 E = normalize(fE);
   vec3 L[nLights];
   
-  N = normalize(texture2D( NormalMap, vTex ));
+  N = normalize(texture2D( NormalMap, vTex ).xyz);
 
   vec4 ambient = vec4(0,0,0,0),
     diffuse = vec4(0,0,0,0),

@@ -154,18 +154,28 @@ void ObjModel::buildModel() {
     else if(line[0] == 'K' && line[1] == 'a') {
       sscanf(line, "Ka %f %f %f", &x, &y, &z);
       //TODO: implement Ka
+      materialAmbient = vec4(x,y,z,1);
+      printVec("amb",materialAmbient);
+      printf("%s\n",line);
     }
     // Kd - diffuse
     else if(line[0] == 'K' && line[1] == 'd') {
-      sscanf(line, "Ka %f %f %f", &x, &y, &z);
+      sscanf(line, "Kd %f %f %f", &x, &y, &z);
       //TODO: implement Kd
+      materialDiffuse = vec4(x,y,z,1);
+      printVec("dif",materialDiffuse);
+      printf("%s\n",line);
     }
     // Ks - specular
     else if(line[0] == 'K' && line[1] == 's') {
-      sscanf(line, "Ka %f %f %f", &x, &y, &z);
+      sscanf(line, "Ks %f %f %f", &x, &y, &z);
       //TODO: implement Ks
+      materialSpecular = vec4(x,y,z,1);
+      printVec("spec",materialSpecular);
+      printf("%s\n",line);
     }
   }
+  //updateMaterialProducts();
 
   // set shininess
   glUniform1f( glGetUniformLocation(program, "Shininess"), 1.0);
