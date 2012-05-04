@@ -35,6 +35,11 @@ void GLSLProgram::setUniform(vec4 v, const char* format, ...) {
   glUniform4fv(getUnifLoc(), 1, v);
 }
 
+void GLSLProgram::setUniform(GLfloat f, const char* format, ...) {
+  getBuffer();
+  glUniform1f(getUnifLoc(), f);
+}
+
 GLuint GLSLProgram::getProgram() {
   return program;
 }

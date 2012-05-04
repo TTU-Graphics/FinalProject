@@ -159,7 +159,9 @@ void Scene::buildLight(Json::Value light) {
         getVec4(light["center"]),
         getVec4(light["ambient"]),
         getVec4(light["diffuse"]),
-        getVec4(light["specular"])));
+        getVec4(light["specular"]),
+		getVec4(light.get("direction",light["center"])),
+		light.get("angle",180).asFloat()));
 }
 
 void Scene::buildAnimation(Json::Value anim) {

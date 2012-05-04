@@ -9,14 +9,15 @@ varying  vec3 fE;
 uniform float Shininess;
 
 struct LightInfo {
-  vec4 Position;
+  vec4 Position, Direction;
+  float Angle;
   //product of material and light properties
   vec4 AmbientProduct, DiffuseProduct, SpecularProduct;
 };
 uniform LightInfo lights[nLights];
 
 void main() 
-{ 
+{
   // Normalize the input lighting vectors
   vec3 N = normalize(fN);
   vec3 E = -normalize(fE);
@@ -34,13 +35,16 @@ void main()
 
     vec3 H = normalize(L[i] + E);
 
-    Kd = max(dot(L[i], N), 0.0);
-    diffuse += Kd*lights[i].DiffuseProduct;
+	if( dot(E-L[i],normalize(lights[i].Direction.xyz)) > cos(lights[i].Angle) )
+	{
+		Kd = max(dot(L[i], N), 0.0);
+		diffuse += Kd*lights[i].DiffuseProduct;
 
-    Ks = pow(max(dot(N, H), 0.0), Shininess);
-    if(dot(L[i], N) >= 0.0) {
-      specular += Ks*lights[i].SpecularProduct;
-    }
+		Ks = pow(max(dot(N, H), 0.0), Shininess);
+		if(dot(L[i], N) >= 0.0) {
+		  specular += Ks*lights[i].SpecularProduct;
+		}
+	}
   }
 
   gl_FragColor = ambient + diffuse + specular;

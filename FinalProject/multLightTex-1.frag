@@ -1,3 +1,4 @@
+const int nLights = 1;
 uniform sampler2D Texture;
 uniform sampler2D NormalMap;
 varying vec2 vTex;
@@ -36,11 +37,12 @@ void main()
   for(int i=0; i<nLights; i++) {
     ambient += lights[i].AmbientProduct;
 
+    // Bring L into tangent space
     L[i] = normalize(fL[i]);
 
     vec3 H = normalize(L[i] + E);
 
-	if( dot(normalize(E-L[i]),normalize(lights[i].Direction.xyz)) > cos(lights[i].Angle) )
+	if( dot(E-L[i],normalize(lights[i].Direction.xyz)) > cos(lights[i].Angle) )
 	{
 		Kd = max(dot(L[i], N), 0.0);
 		diffuse += Kd*lights[i].DiffuseProduct;

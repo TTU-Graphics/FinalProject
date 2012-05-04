@@ -14,7 +14,8 @@ uniform float Shininess;
 
 
 struct LightInfo {
-  vec4 Position;
+  vec4 Position, Direction;
+  float Angle;
   //product of material and light properties
   vec4 AmbientProduct, DiffuseProduct, SpecularProduct;
 };
@@ -24,10 +25,10 @@ void main()
 { 
   // Normalize the input lighting vectors
   vec3 N = normalize(fN);
-  vec3 E = normalize(fE);
+  vec3 E = -normalize(fE);
   vec3 L[nLights];
   
-  N = normalize(texture2D( NormalMap, vTex ));
+  N = normalize(texture2D( NormalMap, vTex ).xyz);
 
   vec4 ambient = vec4(0,0,0,0),
     diffuse = vec4(0,0,0,0),
@@ -36,23 +37,24 @@ void main()
   for(int i=0; i<nLights; i++) {
     ambient += lights[i].AmbientProduct;
 
-    // Bring L into tangent space
     L[i] = normalize(fL[i]);
 
     vec3 H = normalize(L[i] + E);
 
-    Kd = max(dot(L[i], N), 0.0);
-    diffuse += Kd*lights[i].DiffuseProduct;
+	if( dot(normalize(E-L[i]),normalize(lights[i].Direction.xyz)) > cos(lights[i].Angle) )
+	{
+		Kd = max(dot(L[i], N), 0.0);
+		diffuse += Kd*lights[i].DiffuseProduct;
 
-    Ks = pow(max(dot(N, H), 0.0), Shininess);
-    if(dot(L[i], N) >= 0.0) {
-      specular += Ks*lights[i].SpecularProduct;
-    }
+		Ks = pow(max(dot(N, H), 0.0), Shininess);
+		if(dot(L[i], N) >= 0.0) {
+		  specular += Ks*lights[i].SpecularProduct;
+		}
+	}
   }
 
   gl_FragColor = ambient + diffuse + specular;
   gl_FragColor.a = 1.0;
-//  gl_FragColor = vec4(T, 1);
   gl_FragColor *= texture2D(Texture, vTex);
 } 
 

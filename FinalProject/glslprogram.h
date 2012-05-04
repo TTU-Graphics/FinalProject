@@ -19,6 +19,7 @@ class GLSLProgram {
     void setUniform(mat3, const char*, ...);
     void setUniform(vec3, const char*, ...);
     void setUniform(vec4, const char*, ...);
+	void setUniform(GLfloat f, const char* format, ...);
     GLuint getProgram();
     void setBuffer(GLuint, GLvoid*, GLenum, int, vec4*, const char*, ...);
     void setBuffer(GLuint, GLvoid*, GLenum, int, vec3*, const char*, ...);

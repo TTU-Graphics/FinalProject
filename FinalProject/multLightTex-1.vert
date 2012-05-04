@@ -1,4 +1,4 @@
-const int nLights = 2;
+const int nLights = 1;
 attribute vec4 vPosition;
 attribute vec4 vNormal;
 attribute vec2 vTexture;

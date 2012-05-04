@@ -43,6 +43,8 @@ void ShadedModel::setLight(Light* light, int index) {
   prog->setUniform(difProduct, "lights[%d].DiffuseProduct", index);
   prog->setUniform(specProduct, "lights[%d].SpecularProduct", index);
   prog->setUniform(light->getPosition(), "lights[%d].Position", index);
+  prog->setUniform(light->getDirection(), "lights[%d].Direction", index);
+  prog->setUniform(light->getAngle(), "lights[%d].Angle", index);
   updateLightPositions();
 }
 

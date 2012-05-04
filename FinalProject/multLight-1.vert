@@ -8,7 +8,8 @@ varying  vec3 fE;
 varying  vec3 fL[nLights];
 
 struct LightInfo {
-  vec4 Position;
+  vec4 Position, Direction;
+  float Angle;
   //product of material and light properties
   vec4 AmbientProduct, DiffuseProduct, SpecularProduct;
 };

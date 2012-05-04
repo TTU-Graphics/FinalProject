@@ -12,9 +12,9 @@ using namespace std;
 class ObjModel: public ShadedModel {
   public:
     ObjModel(const char* objFile, int numLights,
-        vec4 ambient = vec4(1,0,1,1),
-        vec4 diffuse = vec4(1,.8,0,1),
-        vec4 specular = vec4(1,0,1,1));
+        vec4 ambient = vec4(1,1,1,1),
+        vec4 diffuse = vec4(1,1,1,1),
+        vec4 specular = vec4(1,1,1,1));
 
     // overloaded methods
     void buildModel();

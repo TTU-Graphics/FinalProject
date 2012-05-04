@@ -422,7 +422,7 @@ int main( int argc, char **argv )
   glutInit( &argc, argv );
   glutInitDisplayMode( GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH | GLUT_ALPHA );
   glutInitWindowSize( winHeight, winWidth );
-  glutCreateWindow( "3D Menger Sponge" );
+  glutCreateWindow( "Ruby's Adventures" );
 
 #ifndef __APPLE__
   glewExperimental = GL_TRUE;
