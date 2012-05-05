@@ -9,6 +9,7 @@
 #include "../sphere.h"
 #include "../texTri.h"
 #include "../objModel.h"
+#include "../Tesseract.h"
 //animation
 #include "../animation/animation.h"
 #include "../animation/orbitalModel.h"

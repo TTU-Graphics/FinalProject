@@ -109,6 +109,11 @@ void resetIdle() {
 void idle() {
   clock_t ticks = clock();
   if(ticks - lastTick >= clocksPerFrame) {
+  Tesseract::theta += .1*DegreesToRadians;
+    if( Tesseract::theta > 360*DegreesToRadians )
+    {
+      Tesseract::theta -= 360*DegreesToRadians;
+    }
     float seconds = ((float)ticks)/CLOCKS_PER_SEC;
     //animator->step(seconds);
     scene->tick(seconds);

@@ -203,7 +203,7 @@ Model* Scene::buildModel(Json::Value model) {
           getVec4(model.get("ambient","[1,0,1,1]")),
           getVec4(model.get("diffuse","[1,0.8,0,1]")),
           getVec4(model.get("specular","[1,0,1,1]")));
-    }
+	}
     vector<Light*>::iterator it;
     int light = 0;
     for(it = lights.begin(); it != lights.end(); it++) {
@@ -223,8 +223,16 @@ Model* Scene::buildModel(Json::Value model) {
     int light = 0;
     for(it = lights.begin(); it != lights.end(); it++) {
       obj->setLight((*it), light++);
-	  retModel = obj;
 	}
+	  retModel = obj;
+  } else if(type.compare("Tesseract") == 0) {
+	  Tesseract *tess = new Tesseract( lights.size() );
+	  vector<Light*>::iterator it;
+      int light = 0;
+      for(it = lights.begin(); it != lights.end(); it++) {
+		tess->setLight((*it), light++);
+	  }
+	  retModel = tess;
   }
 
   // map model if it has an id

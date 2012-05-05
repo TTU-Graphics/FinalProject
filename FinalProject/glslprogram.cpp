@@ -17,7 +17,7 @@ GLSLProgram::GLSLProgram(const char* vShader, const char* fShader,
 void GLSLProgram::setUniform(mat4 m, const char* format, ...) {
   getBuffer();
   glUniformMatrix4fv(getUnifLoc(), 1, GL_TRUE, m);
-  glError("glslprogram setting uniform mat4");
+  glError("glslprogram setting uniform mat4 ",buffer);
 }
 
 void GLSLProgram::setUniform(mat3 m, const char* format, ...) {

@@ -221,6 +221,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Tesseract.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\texTri.cpp"
 				>
 			</File>
@@ -324,6 +328,10 @@
 			</File>
 			<File
 				RelativePath=".\sphere.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Tesseract.h"
 				>
 			</File>
 			<File
@@ -490,6 +498,14 @@
 			</File>
 			<File
 				RelativePath=".\singleLightBook.vert"
+				>
+			</File>
+			<File
+				RelativePath=".\Tesseract.frag"
+				>
+			</File>
+			<File
+				RelativePath=".\Tesseract.vert"
 				>
 			</File>
 			<File

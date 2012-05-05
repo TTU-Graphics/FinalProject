@@ -7,7 +7,7 @@
       "center": [0,0,0],
       "radius": 1,
       "subdivisions": 2*/
-      "class": "ObjModel",
+      "class": "Tesseract",
       "objfile": "objects/WizardHatNormal.obj",
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
@@ -15,7 +15,7 @@
     },
     {
       "type": "model",
-      "class": "Sphere",
+      "class": "Tesseract",
       "id": "plastic",
       "subdivs": 4,
       "radius": 1,
