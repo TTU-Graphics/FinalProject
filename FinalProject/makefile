@@ -1,6 +1,6 @@
 menger : main.cpp InitShader.cpp \
 		model.o shadedModel.o \
-		menger.o colorTri.o sphere.o shadedTri.o texTri.o objModel.o \
+		menger.o colorTri.o sphere.o shadedTri.o texTri.o objModel.o tesseract.o \
 		light.o \
 		helpers.o glslprogram.o \
 		scene/scene.o scene/groupNode.o \
@@ -9,7 +9,7 @@ menger : main.cpp InitShader.cpp \
 	g++ -w \
 		main.cpp InitShader.cpp \
 		model.o shadedModel.o \
-		menger.o colorTri.o sphere.o shadedTri.o texTri.o objModel.o \
+		menger.o colorTri.o sphere.o shadedTri.o texTri.o objModel.o tesseract.o \
 		light.o \
 		animation/orbitalModel.o animation/animator.o animation/animation.o \
 		helpers.o glslprogram.o \
@@ -44,6 +44,9 @@ texTri.o: texTri.h texTri.cpp
 
 objModel.o: objModel.h objModel.cpp
 	g++ -c objModel.cpp -o objModel.o
+
+tesseract.o: Tesseract.h Tesseract.cpp
+	g++ -c Tesseract.cpp -o tesseract.o
 #}}}
 #{{{ lights
 light.o: light.h light.cpp

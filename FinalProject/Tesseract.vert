@@ -39,8 +39,8 @@ void main()
 	float sines[6], cosines[6];
 	for( int i=0; i<6; i++ )
 	{
-		sines[i] = sin(i*Theta);
-		cosines[i] = cos(i*Theta);
+		sines[i] = sin(float(i)*Theta);
+		cosines[i] = cos(float(i)*Theta);
 	}
 
 
