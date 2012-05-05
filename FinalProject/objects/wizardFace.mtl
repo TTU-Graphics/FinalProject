@@ -8,7 +8,7 @@ Ks 0.050000 0.050000 0.050000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd /Users/mikekent/Dropbox/classes/Computer Graphics/hw/FinalProject/FinalProject/textures/wizardFace.png
-map_Bump /Users/mikekent/Dropbox/classes/Computer Graphics/hw/FinalProject/FinalProject/textures/paper.jpg
+map_Kd textures/wizardFace.png
+map_Bump textures/paper.jpg
 
 

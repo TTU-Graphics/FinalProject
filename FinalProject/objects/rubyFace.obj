@@ -1,6 +1,6 @@
 # Blender v2.62 (sub 0) OBJ File: ''
 # www.blender.org
-mtllib rubyFace.mtl
+mtllib objects/rubyFace.mtl
 o Cylinder
 v -0.555570 -0.831470 0.096650
 v -0.620994 -0.777778 0.089499
