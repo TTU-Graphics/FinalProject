@@ -23,21 +23,25 @@ void GLSLProgram::setUniform(mat4 m, const char* format, ...) {
 void GLSLProgram::setUniform(mat3 m, const char* format, ...) {
   getBuffer();
   glUniformMatrix3fv(getUnifLoc(), 1, GL_TRUE, m);
+  glError("glslprogram setting uniform mat3 ",buffer);
 }
 
 void GLSLProgram::setUniform(vec3 v, const char* format, ...) {
   getBuffer();
   glUniform3fv(getUnifLoc(), 1, v);
+  glError("glslprogram setting uniform vec3 ",buffer);
 }
 
 void GLSLProgram::setUniform(vec4 v, const char* format, ...) {
   getBuffer();
   glUniform4fv(getUnifLoc(), 1, v);
+  glError("glslprogram setting uniform vec4 ",buffer);
 }
 
 void GLSLProgram::setUniform(GLfloat f, const char* format, ...) {
   getBuffer();
   glUniform1f(getUnifLoc(), f);
+  glError("glslprogram setting uniform float ",buffer);
 }
 
 GLuint GLSLProgram::getProgram() {
@@ -117,13 +121,11 @@ GLuint GLSLProgram::setTexture(const char* imgFile, const char* format, ...) {
       SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB |
         SOIL_FLAG_COMPRESS_TO_DXT);
   activeTextures.push_back(activeTex);
-  printf("buffer = %s\n",buffer);
-  printf("ActiveTex = %d\n",activeTex);
-  printf("texNum = %d\n",texNum);
 
   glActiveTexture(GL_TEXTURE0 + texNum);
   glBindTexture(GL_TEXTURE_2D, activeTex);
   glUniform1i(glGetUniformLocation(program,buffer), texNum);
+  glError("glslprogram problem setting texture ", buffer);
 
   return activeTex;
 }
@@ -134,5 +136,6 @@ void GLSLProgram::bindTexture() {
   for(int i=0; i<textureNums.size(); i++) {
     glActiveTexture(GL_TEXTURE0 + textureNums[i]);
     glBindTexture(GL_TEXTURE_2D, activeTextures[i]);
-  }//*/
+  }
+  glError("glslprogram problem binding texture");
 }

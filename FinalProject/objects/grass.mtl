@@ -1,6 +1,6 @@
 # Blender MTL File: 'stage.blend'
 # Material Count: 1
-newmtl Material_untitled
+newmtl Material_grass.png
 Ns 96.078431
 Ka 0.000000 0.000000 0.000000
 Kd 0.089717 0.254825 0.064283
@@ -8,7 +8,7 @@ Ks 0.200000 0.200000 0.200000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd textures/grass_texture.jpg
+map_Kd textures/grass.png
 map_Bump textures/cardboardSide_normal.JPG
 
 

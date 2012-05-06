@@ -17,7 +17,7 @@ ObjModel::ObjModel(const char* objFile,
 }
 
 void ObjModel::buildModel() {
-  printf("building obj model\n");
+  printf("\n");
   FILE *objFile = fopen(objFileName, "r");
   char line[256], materialFile[256], texFile[256], nMapFile[256];
 
@@ -27,7 +27,7 @@ void ObjModel::buildModel() {
       n1, n2, n3;
   bool createdBuffers = false;
   vertexCount = 0;
-  printf("reading obj file\n");
+  clock_t time = clock();
   while( fgets(line, 256, objFile) != NULL) {
     // ignore comments
     if(line[0] == '#') {
@@ -39,14 +39,12 @@ void ObjModel::buildModel() {
     }
     // vertex
     else if(line[0] == 'v' && line[1] == ' ') {
-      //printf("reading vertex\n");
       sscanf(line, "v %f %f %f", &x, &y, &z);
       colVerts.push_back(vec4(x, y, z, 1.));
       vertexCount++;
     }
     // texture
     else if(line[0] == 'v' && line[1] == 't') {
-      //printf("reading tex\n");
       sscanf(line, "vt %f %f", &x, &y);
       colTex.push_back(vec2(x, y));
     }
@@ -54,7 +52,6 @@ void ObjModel::buildModel() {
     else if(line[0] == 'v' && line[1] == 'n') {
 	  // Ignore normals since we're using object-space normal maps
 	  continue;
-      //printf("reading normal\n");
       //sscanf(line, "vn %f %f %f", &x, &y, &z);
       //colNorms.push_back(vec3(x, y, z));
     }
@@ -68,7 +65,6 @@ void ObjModel::buildModel() {
     }
     // face
     else if(line[0] == 'f') {
-      //printf("reading face\n");
       sscanf(line, "f %d/%d/%d %d/%d/%d %d/%d/%d",
           &v1, &t1, &n1,
           &v2, &t2, &n2,
@@ -85,7 +81,10 @@ void ObjModel::buildModel() {
     }
   }
   fclose(objFile);
+  time = clock() - time;
+  printf("read time of %s: %f\n",objFileName,((float)time)/CLOCKS_PER_SEC);
 
+  time = clock();
   vertexCount = verts.size();
   vec4 *pVerts = &verts[0];
 //  vec3 *pNorms = &norms[0];
@@ -100,10 +99,13 @@ void ObjModel::buildModel() {
   prog->setBuffer(buffers[1],BUFFER_OFFSET(0),GL_FLOAT,
       vertexCount,pTex,"vTexture");
 
+  time = clock() - time;
+  printf("shader loading time of %s: %f\n",objFileName,((float)time)/CLOCKS_PER_SEC);
+
   // read material file
   printf("\tmaterial file \"%s\"\n",materialFile);
+  time = clock();
   FILE *mtlFile = fopen(materialFile, "r");
-  printf("reading material file\n");
   while( fgets(line, 256, objFile) != NULL) {
     // texture file
     // map_Kd textureFile
@@ -117,39 +119,38 @@ void ObjModel::buildModel() {
     // Ka - ambient
     else if(line[0] == 'K' && line[1] == 'a') {
       sscanf(line, "Ka %f %f %f", &x, &y, &z);
-      //TODO: implement Ka
       materialAmbient = vec4(x,y,z,1);
-      printVec("amb",materialAmbient);
-      printf("%s\n",line);
     }
     // Kd - diffuse
     else if(line[0] == 'K' && line[1] == 'd') {
       sscanf(line, "Kd %f %f %f", &x, &y, &z);
-      //TODO: implement Kd
       materialDiffuse = vec4(x,y,z,1);
-      printVec("dif",materialDiffuse);
-      printf("%s\n",line);
     }
     // Ks - specular
     else if(line[0] == 'K' && line[1] == 's') {
       sscanf(line, "Ks %f %f %f", &x, &y, &z);
-      //TODO: implement Ks
       materialSpecular = vec4(x,y,z,1);
-      printVec("spec",materialSpecular);
-      printf("%s\n",line);
     }
   }
   //updateMaterialProducts();
+  time = clock() - time;
+  printf("material file loading time of %s: %f\n",materialFile,((float)time)/CLOCKS_PER_SEC);
 
   // set shininess
   glUniform1f( glGetUniformLocation(program, "Shininess"), 1.0);
 
   // set texture image
   printf("\ttexture file \"%s\"\n",texFile);
+  time = clock();
   prog->setTexture(texFile,"Texture");
+  time = clock() - time;
+  printf("texture file loading time of %s: %f\n",texFile,((float)time)/CLOCKS_PER_SEC);
   // set normal map
   printf("\tnormal map file\"%s\"\n",nMapFile);
+  time = clock();
   prog->setTexture(nMapFile,"NormalMap");
+  time = clock() - time;
+  printf("normal file loading time of %s: %f\n",nMapFile,((float)time)/CLOCKS_PER_SEC);
 }
 
 void ObjModel::preRender() {

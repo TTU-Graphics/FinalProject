@@ -1,5 +1,14 @@
 {
   "models": [
+    /*{
+      "type": "model",
+      "id": "foreground_grass",
+      "class": "ObjModel",
+      "objfile": "objects/grass.obj",
+      "ambient": [1,1,1,1],
+      "diffuse": [1,1,1,1],
+      "specular": [1,1,1,1]
+    },*/
     {
       "type": "model",
       "id": "hat",
@@ -30,16 +39,7 @@
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
-    },/*
-    {
-      "type": "model",
-      "id": "foreground_grass",
-      "class": "ObjModel",
-      "objfile": "objects/grass.obj",
-      "ambient": [1,1,1,1],
-      "diffuse": [1,1,1,1],
-      "specular": [1,1,1,1]
-    },*/
+    },
     {
       "type": "model",
       "id": "backdrop",
@@ -193,15 +193,17 @@
     }, {
       "type": "orbit",
       "center": "hat",
+      "orbiter": "ruby_bow",
+      "distance": 4,
+      "theta": 25,
+      "phi": 50
+    }, {
+      "type": "orbit",
+      "center": "ruby_bow",
       "orbiter": "stick1",
       "distance": 2,
       "theta": -30,
       "phi": 0
-    }, {
-      "type": "controlled",
-      "object": "ruby_bow",
-      "speed": 0.1,
-      "limit": [10,10,10]
     }
   ],
   "lights": [
