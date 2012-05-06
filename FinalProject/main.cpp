@@ -12,6 +12,8 @@
 #include "scene/scene.h"
 #include "animation/animator.h"
 #include "animation/orbitalModel.h"
+#include "animation/oscillatingModel.h"
+#include "animation/controlledModel.h"
 
 mat4 getView();
 //{{{ Variables
@@ -109,7 +111,7 @@ void resetIdle() {
 void idle() {
   clock_t ticks = clock();
   if(ticks - lastTick >= clocksPerFrame) {
-  Tesseract::theta += .1*DegreesToRadians;
+    Tesseract::theta += .1*DegreesToRadians;
     if( Tesseract::theta > 360*DegreesToRadians )
     {
       Tesseract::theta -= 360*DegreesToRadians;
@@ -254,9 +256,10 @@ void keyPressed( unsigned char key, int x, int y )
       exit( EXIT_SUCCESS );
       break;
 
-    case ' ': menuSelect(MNU_RESET_CAM); break;
-    case 'o': menuSelect(MNU_SET_ORTHOGRAPHIC); break;
-    case 'p': menuSelect(MNU_SET_PERSPECTIVE); break;
+	case 'i': ControlledModel::zSteps--; break;
+	case 'k': ControlledModel::zSteps++; break;
+	case 'j': ControlledModel::xSteps--; break;
+	case 'l': ControlledModel::xSteps++; break;
 
     case '+': menuSelect(MNU_INCREASE_SUBDIVS); break;
     case '-': menuSelect(MNU_DECREASE_SUBDIVS); break;

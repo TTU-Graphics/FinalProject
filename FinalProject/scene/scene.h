@@ -14,6 +14,7 @@
 #include "../animation/animation.h"
 #include "../animation/orbitalModel.h"
 #include "../animation/oscillatingModel.h"
+#include "../animation/controlledModel.h"
 //light
 #include "../light.h"
 
