@@ -1,6 +1,6 @@
 # Blender v2.62 (sub 0) OBJ File: 'rubyFace.blend'
 # www.blender.org
-mtllib rubysBow.mtl
+mtllib objects/rubysBow.mtl
 o Cube
 v 0.090259 1.207615 0.269849
 v 0.090259 1.028207 0.269849

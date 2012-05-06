@@ -74,7 +74,7 @@ void Tesseract::triangle( const vec4& a, const vec4& b, const vec4& c, int color
 
 void Tesseract::face( const vec4& a, const vec4& b, const vec4& c, const vec4& d )
 {
-	std::cout << "\tBuilding face" << std::endl;
+	//std::cout << "\tBuilding face" << std::endl;
 	triangle(a,b,d, face_num);
 	triangle(d,b,c, face_num);
 	face_num++;
