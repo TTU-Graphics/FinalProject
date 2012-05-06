@@ -4,7 +4,7 @@ ObjModel::ObjModel(const char* objFile,
 	      int numLights, vec4 ambient, vec4 diffuse, vec4 specular)
 		    : ShadedModel(numLights, ambient, diffuse, specular) {
   objFileName = objFile;
-  bufferCount = 5; //verticies, normals, tangents, binormals, textures
+  bufferCount = 2; //verticies, texture coordinates (normals come from normal map)
   // init vertex count when building
   buildLightShader("multLightTex",buildString("multLightTex-%d",numLights),numLights);
   vShader = buildString("multLightTex-%d.vert",numLights);
@@ -22,12 +22,6 @@ void ObjModel::buildModel() {
   char line[256], materialFile[256], texFile[256], nMapFile[256];
 
   float x, y, z;
-  float tex1s, tex1t,
-	    tex2s, tex2t;
-  float q1x, q1y, q1z,
-	    q2x, q2y, q2z;
-  float det;
-  vec3  t, b;
   int v1, v2, v3,
       t1, t2, t3,
       n1, n2, n3;
@@ -58,9 +52,11 @@ void ObjModel::buildModel() {
     }
     // normal
     else if(line[0] == 'v' && line[1] == 'n') {
+	  // Ignore normals since we're using object-space normal maps
+	  continue;
       //printf("reading normal\n");
-      sscanf(line, "vn %f %f %f", &x, &y, &z);
-      colNorms.push_back(vec3(x, y, z));
+      //sscanf(line, "vn %f %f %f", &x, &y, &z);
+      //colNorms.push_back(vec3(x, y, z));
     }
     // use material
     else if(line[0] == 'u' && line[2] == 'm') {
@@ -83,57 +79,25 @@ void ObjModel::buildModel() {
       tex.push_back(colTex[t1-1]);
       tex.push_back(colTex[t2-1]);
       tex.push_back(colTex[t3-1]);
-      norms.push_back(colNorms[n1-1]);
-      norms.push_back(colNorms[n2-1]);
-      norms.push_back(colNorms[n3-1]);
-
-      q1x = colVerts[v2-1].x - colVerts[v1-1].x;
-      q1y = colVerts[v2-1].y - colVerts[v1-1].y;
-      q1z = colVerts[v2-1].z - colVerts[v1-1].z;
-      q2x = colVerts[v3-1].x - colVerts[v1-1].x;
-      q2y = colVerts[v3-1].y - colVerts[v1-1].y;
-      q2z = colVerts[v3-1].z - colVerts[v1-1].z;
-      tex1s = colTex[v2-1].x - colTex[v1-1].x;
-      tex1t = colTex[v2-1].y - colTex[v1-1].y;
-      tex2s = colTex[v3-1].x - colTex[v1-1].x;
-      tex2t = colTex[v3-1].y - colTex[v1-1].y;
-      det = 1.0 / ( tex1s*tex2t - tex1t*tex2s );
-
-
-      t = det * vec3( tex2t*q1x - tex1t*q2x,
-          tex2t*q1y - tex1t*q2y,
-          tex2t*q1z - tex1t*q2z );
-      b = det * vec3( -tex2s*q1x + tex1s*q2x,
-          -tex2s*q1y + tex1s*q2y,
-          -tex2s*q1z + tex1s*q2z );
-      tans.push_back(t);
-      tans.push_back(t);
-      tans.push_back(t);
-      bitans.push_back(b);
-      bitans.push_back(b);
-      bitans.push_back(b);
+      //norms.push_back(colNorms[n1-1]);
+      //norms.push_back(colNorms[n2-1]);
+      //norms.push_back(colNorms[n3-1]);
     }
   }
   fclose(objFile);
 
   vertexCount = verts.size();
   vec4 *pVerts = &verts[0];
-  vec3 *pNorms = &norms[0];
-  vec3 *pTans = &tans[0];
-  vec3 *pBitans = &bitans[0];
+//  vec3 *pNorms = &norms[0];
   vec2 *pTex = &tex[0];
   printf("vertexCount = %d\n",vertexCount);
 
   // set verticies, normals, tangents, bitangents, and texture coordinates
   prog->setBuffer(buffers[0],BUFFER_OFFSET(0),GL_FLOAT,
       vertexCount,pVerts,"vPosition");
+  //prog->setBuffer(buffers[1],BUFFER_OFFSET(0),GL_FLOAT,
+  //    vertexCount,pNorms,"vNormal");
   prog->setBuffer(buffers[1],BUFFER_OFFSET(0),GL_FLOAT,
-      vertexCount,pNorms,"vNormal");
-  prog->setBuffer(buffers[2],BUFFER_OFFSET(0),GL_FLOAT,
-      vertexCount,pTans,"vTangent");
-  prog->setBuffer(buffers[3],BUFFER_OFFSET(0),GL_FLOAT,
-      vertexCount,pBitans,"vBitangent");
-  prog->setBuffer(buffers[4],BUFFER_OFFSET(0),GL_FLOAT,
       vertexCount,pTex,"vTexture");
 
   // read material file

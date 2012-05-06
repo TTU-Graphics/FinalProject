@@ -179,7 +179,7 @@ void Scene::buildAnimation(Json::Value anim) {
     animations.push_back(animation);
   }
   //oscillate
-  if(type.compare("oscillate") == 0) {
+  else if(type.compare("oscillate") == 0) {
     vec3 max = getVec3(anim.get("max","[0,0,0]"));
 	vec3 rate = getVec3(anim.get("rate","[0,0,0]"));
 	vec3 center = getVec3(anim.get("center","[0,0,0]"));
@@ -191,6 +191,15 @@ void Scene::buildAnimation(Json::Value anim) {
 	  center.x, center.y, center.z );
 	animations.push_back(animation);
 	}
+  else if(type.compare("controlled") == 0) {
+	vec3 limit = getVec3(anim.get("limit","[0,0,0]"));
+
+	Animation* animation = new ControlledModel(
+      (idModels.find(anim["object"].asString())->second),
+	  anim.get("speed",0.1).asFloat(),
+	  limit.x, limit.y, limit.z );
+	  animations.push_back(animation);
+  }
 }
 
 Model* Scene::buildModel(Json::Value model) {

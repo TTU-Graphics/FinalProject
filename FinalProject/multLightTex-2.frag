@@ -4,7 +4,7 @@ uniform sampler2D NormalMap;
 varying vec2 vTex;
 
 // per-fragment interpolated values from the vertex shader
-varying  vec3 fN;
+//varying  vec3 fN;
 varying  vec3 fT;
 varying  vec3 fB;
 varying  vec3 fL[nLights];
@@ -24,11 +24,11 @@ uniform LightInfo lights[nLights];
 void main() 
 { 
   // Normalize the input lighting vectors
-  vec3 N = normalize(fN);
+  //vec3 N = normalize(fN);
   vec3 E = -normalize(fE);
   vec3 L[nLights];
   
-  N = normalize(texture2D( NormalMap, vTex ).xyz);
+  vec3 N = normalize(texture2D( NormalMap, vTex ).xyz);
 
   vec4 ambient = vec4(0,0,0,0),
     diffuse = vec4(0,0,0,0),

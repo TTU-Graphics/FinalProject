@@ -1,5 +1,5 @@
-#ifndef __OSCILLATINGMODEL_H
-#define __OSCILLATINGMODEL_H
+#ifndef __OSCILLATINGMODEL_H__
+#define __OSCILLATINGMODEL_H__
 
 #include "../Angel.h"
 #include "../helpers.h"

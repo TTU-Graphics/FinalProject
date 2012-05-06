@@ -240,6 +240,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\animation\controlledModel.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\animation\orbitalModel.cpp"
 					>
 				</File>
@@ -359,6 +363,10 @@
 				</File>
 				<File
 					RelativePath=".\animation\animator.h"
+					>
+				</File>
+				<File
+					RelativePath=".\animation\controlledModel.h"
 					>
 				</File>
 				<File
