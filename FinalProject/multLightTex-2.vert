@@ -1,10 +1,10 @@
 const int nLights = 2;
 attribute vec4 vPosition;
-attribute vec4 vNormal;
+//attribute vec4 vNormal;
 attribute vec2 vTexture;
 
 // output values that will be interpretated per-fragment
-varying vec3 fN;
+//varying vec3 fN;
 varying vec3 fE;
 varying vec3 fL[nLights];
 
@@ -25,7 +25,7 @@ varying vec2 vTex;
 
 void main()
 {
-  fN = normalize(NormalMatrix * vNormal.xyz);
+//  fN = normalize(NormalMatrix * vNormal.xyz);
   fE = (ModelView*vPosition).xyz;
 
   for(int i=0; i<nLights; i++) {

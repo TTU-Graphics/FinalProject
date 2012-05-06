@@ -23,9 +23,9 @@ class ObjModel: public ShadedModel {
   private:
     vector<vec4> colVerts, verts;
     vector<vec2> colTex, tex;
-    vector<vec3> colNorms, norms;
-    vector<vec3> tans;
-    vector<vec3> bitans;
+    //vector<vec3> colNorms, norms;
+    //vector<vec3> tans;
+    //vector<vec3> bitans;
     char* textureFile;
     const char* objFileName;
     GLuint glTex;
