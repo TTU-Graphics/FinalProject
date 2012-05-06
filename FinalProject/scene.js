@@ -52,24 +52,27 @@
   ],
   "animations": [
     {
+      "type": "orbit",
       "center": "sponge",
       "orbiter": "plastic",
       "distance": 3.5,
       "theta": 0,
       "phi": 20
     }, {
+      "type": "orbit",
       "center": "plastic",
       "orbiter": "metal",
       "distance": 2.1,
       "theta": 40,
       "phi": 0
     }, {
-      "center": "sponge",
-      "orbiter": "matte",
-      "distance": 5.6,
-      "theta": -20,
-      "phi": 0 
+      "type": "oscillate",
+      "object": "matte",
+      "max": [0.5,0.5,0.5],
+      "rate": [0.1,0.1,0.1],
+      "center": [1,1,1]
     }, {
+      "type": "orbit",
       "center": "sponge",
       "orbiter": "textri",
       "distance": 7.5,

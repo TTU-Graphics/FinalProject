@@ -243,6 +243,10 @@
 					RelativePath=".\animation\orbitalModel.cpp"
 					>
 				</File>
+				<File
+					RelativePath=".\animation\oscillatingModel.cpp"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="scene"
@@ -359,6 +363,10 @@
 				</File>
 				<File
 					RelativePath=".\animation\orbitalModel.h"
+					>
+				</File>
+				<File
+					RelativePath=".\animation\oscillatingModel.h"
 					>
 				</File>
 			</Filter>

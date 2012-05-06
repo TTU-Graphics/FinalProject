@@ -160,19 +160,37 @@ void Scene::buildLight(Json::Value light) {
         getVec4(light["ambient"]),
         getVec4(light["diffuse"]),
         getVec4(light["specular"]),
-		getVec4(light.get("direction",light["center"])),
-		light.get("angle",180).asFloat()));
+    getVec4(light.get("direction",light["center"])),
+    light.get("angle",180).asFloat()));
 }
 
 void Scene::buildAnimation(Json::Value anim) {
   //printf("creating anim: %s\n",anim.toStyledString().c_str());
-  Animation* animation = new OrbitalModel(
+  string type = anim["type"].asString();
+
+  //orbit
+  if(type.compare("orbit") == 0) {
+    Animation* animation = new OrbitalModel(
       (idModels.find(anim["center"].asString())->second),
       (idModels.find(anim["orbiter"].asString())->second),
       anim.get("distance","1").asFloat(),
       anim.get("theta","0").asFloat(),
       anim.get("phi","0").asFloat());
-  animations.push_back(animation);
+    animations.push_back(animation);
+  }
+  //oscillate
+  if(type.compare("oscillate") == 0) {
+    vec3 max = getVec3(anim.get("max","[0,0,0]"));
+	vec3 rate = getVec3(anim.get("rate","[0,0,0]"));
+	vec3 center = getVec3(anim.get("center","[0,0,0]"));
+
+    Animation* animation = new OscillatingModel(  
+      (idModels.find(anim["object"].asString())->second),
+	  max.x, max.y, max.z,
+	  rate.x, rate.y, rate.z,
+	  center.x, center.y, center.z );
+	animations.push_back(animation);
+	}
 }
 
 Model* Scene::buildModel(Json::Value model) {
@@ -203,7 +221,7 @@ Model* Scene::buildModel(Json::Value model) {
           getVec4(model.get("ambient","[1,0,1,1]")),
           getVec4(model.get("diffuse","[1,0.8,0,1]")),
           getVec4(model.get("specular","[1,0,1,1]")));
-	}
+  }
     vector<Light*>::iterator it;
     int light = 0;
     for(it = lights.begin(); it != lights.end(); it++) {
@@ -223,16 +241,16 @@ Model* Scene::buildModel(Json::Value model) {
     int light = 0;
     for(it = lights.begin(); it != lights.end(); it++) {
       obj->setLight((*it), light++);
-	}
-	  retModel = obj;
+  }
+    retModel = obj;
   } else if(type.compare("Tesseract") == 0) {
-	  Tesseract *tess = new Tesseract( lights.size() );
-	  vector<Light*>::iterator it;
+    Tesseract *tess = new Tesseract( lights.size() );
+    vector<Light*>::iterator it;
       int light = 0;
       for(it = lights.begin(); it != lights.end(); it++) {
-		tess->setLight((*it), light++);
-	  }
-	  retModel = tess;
+    tess->setLight((*it), light++);
+    }
+    retModel = tess;
   }
 
   // map model if it has an id

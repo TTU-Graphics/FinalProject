@@ -13,6 +13,7 @@
 //animation
 #include "../animation/animation.h"
 #include "../animation/orbitalModel.h"
+#include "../animation/oscillatingModel.h"
 //light
 #include "../light.h"
 
