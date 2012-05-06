@@ -1,6 +1,6 @@
 {
   "models": [
-    /*{
+    {
       "type": "model",
       "id": "foreground_grass",
       "class": "ObjModel",
@@ -76,7 +76,7 @@
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
     },//*/
-    /*{
+    {
       "type": "model",
       "id": "ruby_face",
       "class": "ObjModel",
@@ -85,7 +85,7 @@
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
     },//*/
-    /*{
+    {
       "type": "model",
       "id": "wizard",
       "class": "ObjModel",
