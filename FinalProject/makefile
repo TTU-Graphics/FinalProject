@@ -5,13 +5,15 @@ menger : main.cpp InitShader.cpp \
 		helpers.o glslprogram.o \
 		scene/scene.o scene/groupNode.o \
 		libSOIL.a libjson.a \
-		animation/orbitalModel.o animation/animator.o animation/animation.o
+		animation/orbitalModel.o animation/animator.o animation/animation.o \
+		animation/oscillatingModel.o
 	g++ -w \
 		main.cpp InitShader.cpp \
 		model.o shadedModel.o \
 		menger.o colorTri.o sphere.o shadedTri.o texTri.o objModel.o tesseract.o \
 		light.o \
 		animation/orbitalModel.o animation/animator.o animation/animation.o \
+		animation/oscillatingModel.o \
 		helpers.o glslprogram.o \
 		scene/scene.o scene/groupNode.o \
 		libSOIL.a libjson.a \
@@ -62,6 +64,9 @@ animation/orbitalModel.o: animation/orbitalModel.h animation/orbitalModel.cpp
 animation/animator.o: animation/animator.h animation/animator.cpp \
 		animation/animation.o
 	g++ -c animation/animator.cpp -o animation/animator.o
+
+animation/oscillatingModel.o: animation/oscillatingModel.h animation/oscillatingModel.cpp
+	g++ -c h animation/oscillatingModel.cpp -o animation/oscillatingModel.o
 #}}}
 #{{{ scene
 scene/scene.o: scene/scene.h scene/scene.cpp
