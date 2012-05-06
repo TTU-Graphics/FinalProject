@@ -1,7 +1,7 @@
 # Blender v2.62 (sub 0) OBJ File: 'stage.blend'
 # www.blender.org
 mtllib objects/grass.mtl
-o Grid.002_Grid.001
+g Grid.002_Grid.001
 v 3.507393 0.115175 0.372291
 v 2.726533 0.115175 0.313764
 v 1.945673 0.115175 0.344532

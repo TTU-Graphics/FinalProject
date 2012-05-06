@@ -1,6 +1,6 @@
 # Blender v2.62 (sub 0) OBJ File: 'stage.blend'
 # www.blender.org
-mtllib wizardHatFinal.mtl
+mtllib objects/wizardHatFinal.mtl
 o Mesh.005_low_Cone
 v 0.988298 3.264541 -0.777915
 v 1.001261 3.189829 -0.795012

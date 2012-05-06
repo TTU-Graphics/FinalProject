@@ -8,7 +8,7 @@
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
-    },*/
+    },//*/
     {
       "type": "model",
       "id": "hat",
@@ -17,7 +17,7 @@
       "radius": 1,
       "subdivisions": 2*/
       "class": "ObjModel",
-      "objfile": "objects/WizardHatNormal.obj",
+      "objfile": "objects/wizardHatFinal.obj",
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
@@ -57,8 +57,8 @@
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
-    },/*
-    {
+    },
+    /*{
       "type": "model",
       "id": "bird1",
       "class": "ObjModel",
@@ -66,8 +66,8 @@
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
-    },*//*
-    {
+    },//*/
+    /*{
       "type": "model",
       "id": "machine",
       "class": "ObjModel",
@@ -75,8 +75,8 @@
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
-    },*//*
-    {
+    },//*/
+    /*{
       "type": "model",
       "id": "ruby_face",
       "class": "ObjModel",
@@ -84,7 +84,16 @@
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
-    },*/
+    },//*/
+    /*{
+      "type": "model",
+      "id": "wizard",
+      "class": "ObjModel",
+      "objfile": "objects/wizardFace.obj",
+      "ambient": [1,1,1,1],
+      "diffuse": [1,1,1,1],
+      "specular": [1,1,1,1]
+    },//*/
     {
       "type": "model",
       "id": "ruby_bow",
@@ -102,16 +111,7 @@
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
-    },/*
-    {
-      "type": "model",
-      "id": "wizard",
-      "class": "ObjModel",
-      "objfile": "objects/wizardFace.obj",
-      "ambient": [1,1,1,1],
-      "diffuse": [1,1,1,1],
-      "specular": [1,1,1,1]
-    },*/
+    },
     {
       "type": "model",
       "class": "Tesseract",
