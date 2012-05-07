@@ -59,8 +59,8 @@
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
-    },
-    {
+    },//*/
+    /*{
       "type": "model",
       "id": "bird1",
       "class": "ObjModel",
