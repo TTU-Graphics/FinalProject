@@ -22,7 +22,7 @@ menger : main.cpp InitShader.cpp \
 		-framework CoreFoundation
 
 #{{{ model types
-model.o: model.h model.cpp
+model.o: model.h model.cpp abstractModel.h
 	g++ -c model.cpp -o model.o
 
 shadedModel.o: shadedModel.h shadedModel.cpp

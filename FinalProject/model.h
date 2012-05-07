@@ -4,8 +4,9 @@
 #include "Angel.h"
 #include "helpers.h"
 #include "glslprogram.h"
+#include "abstractModel.h"
 
-class Model {
+class Model: public AbstractModel {
   public:
     //variables
     char *vShader, *fShader;
@@ -21,7 +22,7 @@ class Model {
     void render();
     virtual void setModelView(mat4);
     virtual void setWorldMatrix(mat4);
-    void setProjection(mat4);
+    virtual void setProjection(mat4);
 
     //getter functions
     virtual mat4 getModelView();
