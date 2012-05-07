@@ -1,8 +1,8 @@
 #include "colorTri.h"
 
 ChainedTri::ChainedTri() {
-  vShader = "color.vert";
-  fShader = "color.frag";
+  vShader = (char*)"color.vert";
+  fShader = (char*)"color.frag";
   name = "ChainedTri";
 
   vertexCount = 3;
