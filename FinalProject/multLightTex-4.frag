@@ -31,7 +31,7 @@ void main()
   vec3 N = normalize(texture2D( NormalMap, vTex ).xyz);
 
   vec4 ambient = vec4(0,0,0,0),
-    diffuse = texture2D(Texture,vTex),//vec4(0,0,0,0),
+    diffuse = vec4(0,0,0,0),
     specular = vec4(0,0,0,0);
   float Kd, Ks;
   for(int i=0; i<nLights; i++) {
@@ -55,6 +55,6 @@ void main()
 
   gl_FragColor = ambient + diffuse + specular;
   gl_FragColor.a = 1.0;
-  //gl_FragColor *= texture2D(Texture, vTex);
+  gl_FragColor *= texture2D(Texture, vTex);
 } 
 
