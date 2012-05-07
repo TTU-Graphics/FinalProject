@@ -24,7 +24,7 @@
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
     },//*/
-    /*{
+    {
       "type": "model",
       "id": "background",
       "class": "ObjModel",
@@ -32,7 +32,7 @@
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
-    },*/
+    },//*/
     {
       "type": "model",
       "id": "stage_floor",
