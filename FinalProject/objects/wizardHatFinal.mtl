@@ -2,7 +2,7 @@
 # Material Count: 1
 newmtl Material.001_Wizard_Hat_Wire_Texture.png_WizardHatNormalMap2.png
 Ns 92.156863
-Ka 0.000000 0.000000 0.000000
+Ka 1.000000 1.000000 1.000000
 Kd 0.512000 0.512000 0.512000
 Ks 0.500000 0.500000 0.500000
 Ni 1.000000

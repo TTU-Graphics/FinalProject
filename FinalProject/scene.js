@@ -94,7 +94,7 @@
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
     },//*/
-    /*{
+    {
       "type": "model",
       "id": "ruby_bow",
       "class": "ObjModel",
@@ -102,7 +102,7 @@
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
-    },*/
+    },
     {
       "type": "model",
       "id": "stick1",
@@ -150,6 +150,20 @@
     }//*/
   ],
   "animations": [
+    {
+      "type": "controlled",
+      "object": "ruby_face",
+      "limit": [10,1,0],
+      "speed": 0.5
+    },
+    {
+      "type": "orbit",
+      "center": "ruby_face",
+      "orbiter": "stick1",
+      "distance": 0,
+      "theta": 0,
+      "phi": 0
+    },
     {
       "type": "orbit",
       "center": "hat",
@@ -209,24 +223,28 @@
   "lights": [
     {
       "center": [3,0,0,0],
-      "ambient": [0.2,0.2,0.5,1],
+      "ambient": [0.3,0.3,0.3,1],
       "diffuse": [0.2,0.4,1,1],
       "specular": [1,1,0.8,1]
     }, {
       "center": [0,1,0,0],
-      "ambient": [0.2,0.2,0.2,1],
+      "ambient": [0,0,0,1],
       "diffuse": [0.1,0.2,1,1],
       "specular": [0.3,1,1,1]
     }, {
-      "center": [0,0,3,0],
-      "ambient": [0.2,0.2,0.2,1],
-      "diffuse": [0.1,0.2,1,1],
-      "specular": [0.3,1,1,1]
+      "center": [0,0,5,0],
+      "ambient": [0.0,0.0,0.0,1],
+      "diffuse": [1,1,1,1],
+      "specular": [1,1,1,1]/*,
+      "direction": [0,0,-1,0],
+      "angle": 45*/
     }, {
-      "center": [-2,0,3,0],
-      "ambient": [0.2,0.2,0.2,1],
-      "diffuse": [0.1,0.2,1,1],
-      "specular": [0.3,1,1,1]
+      "center": [0,0,-5,0],
+      "ambient": [0.0,0.0,0.0,1],
+      "diffuse": [1,1,1,1],
+      "specular": [1,1,1,1]/*,
+      "direction": [0,0,1,0],
+      "angle": 45*/
     }
   ],
   "camera": {
