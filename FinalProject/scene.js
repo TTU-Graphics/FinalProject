@@ -10,7 +10,7 @@
       "type": "model",
       "id": "foreground_grass",
       "class": "ObjModel",
-      "objfile": "objects/grass.obj",
+      "objfile": "objects/grass_low.obj",
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
@@ -28,7 +28,7 @@
       "type": "model",
       "id": "background",
       "class": "ObjModel",
-      "objfile": "objects/curtain.obj",
+      "objfile": "objects/curtain_low.obj",
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
@@ -46,16 +46,16 @@
       "type": "model",
       "id": "backdrop",
       "class": "ObjModel",
-      "objfile": "objects/backdrop.obj",
+      "objfile": "objects/backdrop_low.obj",
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
-    },
+    },//*/
     {
       "type": "model",
       "id": "mountains",
       "class": "ObjModel",
-      "objfile": "objects/mountains.obj",
+      "objfile": "objects/mountains_low.obj",
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
