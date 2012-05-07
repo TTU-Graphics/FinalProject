@@ -30,21 +30,21 @@ void Scene::tick(float seconds) {
 }
 
 void Scene::setWorldMatrix(mat4 mat) {
-  vector<Model*>::iterator modelIterator;
+  vector<AbstractModel*>::iterator modelIterator;
   for(modelIterator = models.begin(); modelIterator != models.end(); modelIterator++) {
     (*modelIterator)->setWorldMatrix(mat);
   }
 }
 
 void Scene::setProjection(mat4 mat) {
-  vector<Model*>::iterator modelIterator;
+  vector<AbstractModel*>::iterator modelIterator;
   for(modelIterator = models.begin(); modelIterator != models.end(); modelIterator++) {
     (*modelIterator)->setProjection(mat);
   }
 }
 
 void Scene::render() {
-  vector<Model*>::iterator modelIterator;
+  vector<AbstractModel*>::iterator modelIterator;
   for(modelIterator = models.begin(); modelIterator != models.end(); modelIterator++) {
     (*modelIterator)->render();
   }
@@ -63,6 +63,13 @@ void Scene::buildScene(Json::Value node) {
   Json::Value models = node["models"];
   for(int i=0;i<models.size();i++) {
     buildNode(models[i]);
+  }
+
+  if(node.isMember("instances")) {
+    Json::Value instances = node["instances"];
+    for(int i=0;i<instances.size();i++) {
+      buildInstance(instances[i]);
+    }
   }
 
   Json::Value anims = node["animations"];
@@ -269,6 +276,16 @@ Model* Scene::buildModel(Json::Value model) {
     idModels[id] = retModel;
   }
   return retModel;
+}
+
+InstanceModel* Scene::buildInstance(Json::Value defInstance) {
+  InstanceModel* instance = new InstanceModel(
+      idModels[defInstance["reference"].asString()]);
+  mat4 modelView(1);
+  modelView *= Translate(getVec3(defInstance.get("translate","[0,0,0]")));
+  instance->setModelView(modelView);
+  models.push_back(instance);
+  return instance;
 }
 
 GroupNode* Scene::buildGroup(Json::Value groupDef) {

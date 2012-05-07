@@ -10,6 +10,9 @@ class AbstractModel {
     virtual void setModelView(mat4) =0;
     virtual void setWorldMatrix(mat4) =0;
     virtual void setProjection(mat4) =0;
+    virtual mat4 getModelView() =0;
+    virtual mat4 getProjection() =0;
+    virtual mat4 getWorldMatrix() =0;
 };
 
 #endif

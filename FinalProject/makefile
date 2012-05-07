@@ -1,5 +1,5 @@
 menger : main.cpp InitShader.cpp \
-		model.o shadedModel.o \
+		model.o shadedModel.o instanceModel.o \
 		menger.o colorTri.o sphere.o shadedTri.o texTri.o objModel.o tesseract.o \
 		light.o \
 		helpers.o glslprogram.o \
@@ -9,7 +9,7 @@ menger : main.cpp InitShader.cpp \
 		animation/oscillatingModel.o animation/controlledModel.o
 	g++ -w \
 		main.cpp InitShader.cpp \
-		model.o shadedModel.o \
+		model.o shadedModel.o instanceModel.o \
 		menger.o colorTri.o sphere.o shadedTri.o texTri.o objModel.o tesseract.o \
 		light.o \
 		animation/orbitalModel.o animation/animator.o animation/animation.o \
@@ -27,6 +27,9 @@ model.o: model.h model.cpp abstractModel.h
 
 shadedModel.o: shadedModel.h shadedModel.cpp
 	g++ -c shadedModel.cpp -o shadedModel.o
+
+instanceModel.o: instanceModel.h instanceModel.cpp abstractModel.h
+	g++ -c instanceModel.cpp -o instanceModel.o
 #}}}
 #{{{ models
 menger.o: menger.h menger.cpp

@@ -4,6 +4,8 @@
 #include "groupNode.h"
 //models
 #include "../model.h"
+#include "../abstractModel.h"
+#include "../instanceModel.h"
 #include "../menger.h"
 #include "../shadedModel.h"
 #include "../sphere.h"
@@ -43,7 +45,7 @@ class Scene {
 
   private:
     //variables
-    vector<Model*> models;
+    vector<AbstractModel*> models;
     map<string, Model*> idModels;
     vector<Light*> lights;
     vector<Animation*> animations;
@@ -64,6 +66,7 @@ class Scene {
     void buildNode(Json::Value);
     void buildCamera(Json::Value);
     Model* buildModel(Json::Value);
+    InstanceModel* buildInstance(Json::Value);
     GroupNode* buildGroup(Json::Value);
     void recalculateCamera();
     mat4 getView();

@@ -151,6 +151,12 @@
       "texture": "uv_checker.png"
     }//*/
   ],
+  "instances": [
+    {
+      "reference": "curtain",
+      "translate": [0,0,0]
+    }
+  ],
   "animations": [
     {
       "type": "controlled",
