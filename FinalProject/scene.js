@@ -1,5 +1,11 @@
 {
   "models": [
+    /*{
+      "class": "Menger",
+      "center": [0,0,0],
+      "radius": 1,
+      "subdivisions": 2
+    },//*/
     {
       "type": "model",
       "id": "foreground_grass",
@@ -12,16 +18,12 @@
     {
       "type": "model",
       "id": "hat",
-      /*"class": "Menger",
-      "center": [0,0,0],
-      "radius": 1,
-      "subdivisions": 2*/
       "class": "ObjModel",
       "objfile": "objects/wizardHatFinal.obj",
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
-    },
+    },//*/
     /*{
       "type": "model",
       "id": "background",
@@ -58,7 +60,7 @@
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
     },
-    /*{
+    {
       "type": "model",
       "id": "bird1",
       "class": "ObjModel",
@@ -94,7 +96,7 @@
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
     },//*/
-    {
+    /*{
       "type": "model",
       "id": "ruby_bow",
       "class": "ObjModel",
@@ -102,7 +104,7 @@
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
-    },
+    },//*/
     {
       "type": "model",
       "id": "stick1",
