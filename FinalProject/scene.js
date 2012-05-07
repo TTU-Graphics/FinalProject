@@ -22,7 +22,7 @@
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
     },
-    {
+    /*{
       "type": "model",
       "id": "background",
       "class": "ObjModel",
@@ -30,7 +30,7 @@
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
-    },
+    },*/
     {
       "type": "model",
       "id": "stage_floor",
@@ -94,7 +94,7 @@
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
     },//*/
-    {
+    /*{
       "type": "model",
       "id": "ruby_bow",
       "class": "ObjModel",
@@ -102,7 +102,7 @@
       "ambient": [1,1,1,1],
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
-    },
+    },*/
     {
       "type": "model",
       "id": "stick1",
@@ -121,7 +121,7 @@
       "ambient": [0.7,0.1,0.1,1],
       "diffuse": [0.5,0.2,0.2,1],
       "specular": [0.8,0.7,0.7,1]
-    },
+    }/*,
     {
       "type": "model",
       "class": "Sphere",
@@ -147,7 +147,7 @@
       "class": "TexTri",
       "id": "textri",
       "texture": "uv_checker.png"
-    }
+    }//*/
   ],
   "animations": [
     {
@@ -157,7 +157,7 @@
       "distance": 3.5,
       "theta": 0,
       "phi": 20
-    }, {
+    }/* {
       "type": "orbit",
       "center": "plastic",
       "orbiter": "metal",
@@ -177,20 +177,20 @@
       "max": [0.5,0.5,0.5],
       "rate": [0.02,0.01,0.05],
       "center": [1,1,1]
-    }, {
+    },*//* {
       "type": "oscillate",
       "object": "stage_floor",
       "max": [0.0,0.5,0.0],
       "rate": [0.0,0.0,0.0],
       "center": [0,-0.5,0]
-    }, {
+    }, *//*{
       "type": "orbit",
       "center": "hat",
       "orbiter": "textri",
       "distance": 7.5,
       "theta": 0,
       "phi": 50
-    }, {
+    },*//* {
       "type": "orbit",
       "center": "hat",
       "orbiter": "ruby_bow",
@@ -204,7 +204,7 @@
       "distance": 2,
       "theta": -30,
       "phi": 0
-    }
+    }*/
   ],
   "lights": [
     {
@@ -214,6 +214,16 @@
       "specular": [1,1,0.8,1]
     }, {
       "center": [0,1,0,0],
+      "ambient": [0.2,0.2,0.2,1],
+      "diffuse": [0.1,0.2,1,1],
+      "specular": [0.3,1,1,1]
+    }, {
+      "center": [0,0,3,0],
+      "ambient": [0.2,0.2,0.2,1],
+      "diffuse": [0.1,0.2,1,1],
+      "specular": [0.3,1,1,1]
+    }, {
+      "center": [-2,0,3,0],
       "ambient": [0.2,0.2,0.2,1],
       "diffuse": [0.1,0.2,1,1],
       "specular": [0.3,1,1,1]
