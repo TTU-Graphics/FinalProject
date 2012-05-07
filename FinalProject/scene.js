@@ -42,7 +42,7 @@
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
     },
-    {
+    /*{
       "type": "model",
       "id": "backdrop",
       "class": "ObjModel",
