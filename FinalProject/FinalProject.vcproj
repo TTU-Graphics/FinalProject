@@ -209,6 +209,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\particles.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\shadedModel.cpp"
 				>
 			</File>
@@ -316,6 +320,10 @@
 			</File>
 			<File
 				RelativePath=".\objModel.h"
+				>
+			</File>
+			<File
+				RelativePath=".\particles.h"
 				>
 			</File>
 			<File

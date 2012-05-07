@@ -26,7 +26,7 @@
     },//*/
     {
       "type": "model",
-      "id": "background",
+      "id": "curtain",
       "class": "ObjModel",
       "objfile": "objects/curtain_low.obj",
       "ambient": [1,1,1,1],
@@ -173,6 +173,12 @@
       "distance": 3.5,
       "theta": 0,
       "phi": 20
+    }, {
+      "type": "oscillate",
+      "object": "curtain",
+      "max": [3,0,0],
+      "rate": [0.02,0.0,0.0],
+      "center": [-4,0,0]
     }/* {
       "type": "orbit",
       "center": "plastic",

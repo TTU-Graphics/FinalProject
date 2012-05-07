@@ -9,6 +9,6 @@ Ni 1.000000
 d 1.000000
 illum 2
 map_Kd textures/redvelvet.jpeg
-map_Bump textures/curtain_normal.jpeg
+map_Bump textures/curtain_normal.png
 
 
