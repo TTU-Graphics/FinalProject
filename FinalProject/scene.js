@@ -42,7 +42,7 @@
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
     },
-    {
+    /*{
       "type": "model",
       "id": "backdrop",
       "class": "ObjModel",
@@ -150,6 +150,12 @@
       "id": "textri",
       "texture": "uv_checker.png"
     }//*/
+  ],
+  "instances": [
+    {
+      "reference": "curtain",
+      "translate": [0,0,0]
+    }
   ],
   "animations": [
     {

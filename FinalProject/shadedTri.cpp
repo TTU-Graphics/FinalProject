@@ -1,8 +1,8 @@
 #include "shadedTri.h"
 
 ShadedTri::ShadedTri() {
-  vShader = "singleLight.vert";
-  fShader = "singleLight.frag";
+  vShader = (char*)"singleLight.vert";
+  fShader = (char*)"singleLight.frag";
   name = "ShadedTri";
 
   vertexCount = 3;
