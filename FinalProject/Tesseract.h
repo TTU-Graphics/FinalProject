@@ -2,7 +2,7 @@
 #define __TESSERACT_H__
 
 #include "Angel.h"
-#include "ShadedModel.h"
+#include "shadedModel.h"
 
 class Tesseract : public ShadedModel {
 public:
