@@ -2,6 +2,7 @@ menger : main.cpp InitShader.cpp \
 		model.o shadedModel.o instanceModel.o \
 		menger.o colorTri.o sphere.o shadedTri.o texTri.o objModel.o tesseract.o \
 		light.o \
+		particles.o animation/particlesModel.o \
 		helpers.o glslprogram.o \
 		scene/scene.o scene/groupNode.o \
 		libSOIL.a libjson.a \
@@ -12,6 +13,7 @@ menger : main.cpp InitShader.cpp \
 		model.o shadedModel.o instanceModel.o \
 		menger.o colorTri.o sphere.o shadedTri.o texTri.o objModel.o tesseract.o \
 		light.o \
+		particles.o animation/particlesModel.o \
 		animation/orbitalModel.o animation/animator.o animation/animation.o \
 		animation/oscillatingModel.o animation/controlledModel.o \
 		helpers.o glslprogram.o \
@@ -56,6 +58,13 @@ tesseract.o: Tesseract.h Tesseract.cpp
 #{{{ lights
 light.o: light.h light.cpp
 	g++ -c light.cpp -o light.o
+#}}}
+#{{{ particles
+particles.o: particles.h particles.cpp
+	g++ -c particles.cpp -o particles.o
+
+animation/particlesModel.o: animation/particlesModel.h animation/particlesModel.cpp
+	g++ -c animation/particlesModel.cpp -o animation/particlesModel.o
 #}}}
 #{{{ animation
 animation/animation.o: animation/animation.h animation/animation.cpp
