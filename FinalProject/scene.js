@@ -8,6 +8,12 @@
     },//*/
     {
       "type": "model",
+      "id": "particles",
+      "class": "Particles",
+      "number": 50
+    },
+    {
+      "type": "model",
       "id": "foreground_grass",
       "class": "ObjModel",
       "objfile": "objects/grass_low.obj",
@@ -158,6 +164,18 @@
     }
   ],
   "animations": [
+    {
+      "type": "physics",
+      "object": "particles"
+    },
+    {
+      "type": "orbit",
+      "center": "plastic",
+      "orbiter": "particles",
+      "distance": 0,
+      "theta": 0,
+      "phi": 0
+    },
     {
       "type": "controlled",
       "object": "ruby_face",

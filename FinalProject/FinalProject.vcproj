@@ -189,6 +189,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\instanceModel.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\light.cpp"
 				>
 			</File>
@@ -255,6 +259,10 @@
 					RelativePath=".\animation\oscillatingModel.cpp"
 					>
 				</File>
+				<File
+					RelativePath=".\animation\particlesModel.cpp"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="scene"
@@ -300,6 +308,10 @@
 			</File>
 			<File
 				RelativePath=".\helpers.h"
+				>
+			</File>
+			<File
+				RelativePath=".\instanceModel.h"
 				>
 			</File>
 			<File
@@ -383,6 +395,10 @@
 				</File>
 				<File
 					RelativePath=".\animation\oscillatingModel.h"
+					>
+				</File>
+				<File
+					RelativePath=".\animation\particlesModel.h"
 					>
 				</File>
 			</Filter>
