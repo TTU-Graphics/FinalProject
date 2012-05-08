@@ -160,7 +160,25 @@
   "instances": [
     {
       "reference": "curtain",
-      "translate": [0,0,0]
+      "translate": [-6,0,0]
+    }, {
+      "reference": "curtain",
+      "translate": [-5.5,4.5,-0.5]
+    }, {
+      "reference": "curtain",
+      "translate": [-4.5,4.5,-0.5]
+    }, {
+      "reference": "curtain",
+      "translate": [-3.5,4.5,-0.5]
+    }, {
+      "reference": "curtain",
+      "translate": [-2.5,4.5,-0.5]
+    }, {
+      "reference": "curtain",
+      "translate": [-1.5,4.5,-0.5]
+    }, {
+      "reference": "curtain",
+      "translate": [-0.5,4.5,-0.5]
     }
   ],
   "animations": [
@@ -197,13 +215,15 @@
       "distance": 3.5,
       "theta": 0,
       "phi": 20
-    }, {
+    }
+    /*, {
       "type": "oscillate",
       "object": "curtain",
       "max": [3,0,0],
       "rate": [0.02,0.0,0.0],
       "center": [-4,0,0]
-    }/* {
+    }//*/
+    /* {
       "type": "orbit",
       "center": "plastic",
       "orbiter": "metal",
@@ -286,6 +306,6 @@
     "zFar": 50,
     "radius": 15,
     "theta": 0,
-    "phi": 0
+    "phi": 3.14
   }
 }
