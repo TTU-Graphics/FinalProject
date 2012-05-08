@@ -430,7 +430,7 @@ int main( int argc, char **argv )
   glutInit( &argc, argv );
   glutInitDisplayMode( GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH | GLUT_ALPHA );
   glutInitWindowSize( winHeight, winWidth );
-  glutCreateWindow( "Ruby's Adventures" );
+  glutCreateWindow( "Ruby's Return to Reality" );
 
 #ifndef __APPLE__
   glewExperimental = GL_TRUE;
