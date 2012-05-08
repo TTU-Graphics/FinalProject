@@ -55,7 +55,7 @@ void main()
 	}
   }
 
-  gl_FragColor = clamp(ambient + diffuse + specular,0.0,1.0);
+  gl_FragColor = ambient + diffuse + specular;
   gl_FragColor.a = 1.0;
   gl_FragColor *= texture2D(Texture, vTex);
 } 

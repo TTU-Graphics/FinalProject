@@ -37,7 +37,7 @@ void main()
 
     vec3 H = normalize(L[i] + E);
 
-	if( dot(normalize(gl_FragCoord-L[i]),normalize((ModelView*lights[i].Direction).xyz)) > cos(lights[i].Angle) )
+	if( dot(normalize(gl_FragCoord-Projection*ModelView*vec4(L[i],0)),normalize((Projection*ModelView*lights[i].Direction).xyz)) > cos(lights[i].Angle) )
 	{
 		Kd = max(dot(L[i], N), 0.0);
 		diffuse += Kd*lights[i].DiffuseProduct;
@@ -49,7 +49,7 @@ void main()
 	}
   }
 
-  gl_FragColor = clamp(ambient + diffuse + specular,0.0,1.0);
+  gl_FragColor = ambient + diffuse + specular;
   gl_FragColor.a = 1.0;
 } 
 
