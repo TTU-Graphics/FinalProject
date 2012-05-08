@@ -199,7 +199,7 @@
     {
       "type": "controlled",
       "object": "ruby_face",
-      "limit": [10,1,0],
+      "limit": [10,0,1],
       "speed": 0.5
     },
     {
