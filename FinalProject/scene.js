@@ -181,6 +181,9 @@
     }, {
       "reference": "curtain",
       "translate": [-0.5,4.5,-0.5]
+    }, {
+      "reference": "stick1",
+      "translate": [2.35,0.4,0]
     }
   ],
   "animations": [
@@ -227,12 +230,11 @@
       "phi": 0
     },
     {
-      "type": "orbit",
-      "center": "hat",
-      "orbiter": "plastic",
-      "distance": 3.5,
-      "theta": 0,
-      "phi": 20
+      "type": "oscillate",
+      "object": "plastic",
+      "max": [0.05,0.05,0],
+      "rate": [0.007,0.01,0.0],
+      "center": [1.4,2.22,0.2]
     },
     {
       "type": "oscillate",
@@ -300,7 +302,7 @@
   "lights": [
     {
       "center": [3,0,0,0],
-      "ambient": [0.3,0.3,0.3,1],
+      "ambient": [0.1,0.1,0.1,1],
       "diffuse": [0.2,0.4,1,1],
       "specular": [1,1,0.8,1]
     }, {
@@ -309,20 +311,25 @@
       "diffuse": [0.1,0.2,1,1],
       "specular": [0.3,1,1,1]
     }, {
-      "center": [0,0,5,0],
+      "center": [0,4,10,0],
       "ambient": [0.0,0.0,0.0,1],
-      "diffuse": [1,1,1,1],
-      "specular": [1,1,1,1]/*,
-      "direction": [0,0,-1,0],
-      "angle": 45*/
+      "diffuse": [0.4,0.4,0.4,1],
+      "specular": [0.4,0.4,0.4,1]
     }, {
-      "center": [0,0,-5,0],
+      "center": [6,4,10,0],
+      "ambient": [0.0,0.0,0.0,1],
+      "diffuse": [0,1,0,1],
+      "specular": [0,1,0,1],
+      "direction": [0,0,-1,0],
+      "angle": 90
+    }/*, {
+      "center": [2,0,5,0],
       "ambient": [0.0,0.0,0.0,1],
       "diffuse": [1,1,1,1],
-      "specular": [1,1,1,1]/*,
-      "direction": [0,0,1,0],
-      "angle": 45*/
-    }
+      "specular": [1,1,1,1],
+      "direction": [-2,0,-5,0],
+      "angle": 15
+    }*/
   ],
   "camera": {
     "type": "projection",

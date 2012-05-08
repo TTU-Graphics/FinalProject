@@ -49,7 +49,7 @@ void Tesseract::buildModel()
   pNorms = &normals[0];
   printf("vertexCount = %d\n",vertexCount);
 
-  tesseract( vec4(0), 0.5 );
+  tesseract( vec4(0), 0.2 );
 
   // set verticies and normals/colors
   prog->setBuffer(buffers[0],BUFFER_OFFSET(0),GL_FLOAT,

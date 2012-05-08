@@ -10,6 +10,8 @@ varying  vec3 fL[nLights];
 varying  vec3 fE;
 
 uniform float Shininess;
+uniform mat4 ModelView;
+uniform mat4 Projection;
 
 
 struct LightInfo {
@@ -40,7 +42,7 @@ void main()
 
     vec3 H = normalize(L[i] + E);
 
-	if( dot(normalize(E-L[i]),normalize(lights[i].Direction.xyz)) > cos(lights[i].Angle) )
+	if( dot(normalize(gl_FragCoord-Projection*ModelView*vec4(L[i],0)),normalize((Projection*ModelView*lights[i].Direction).xyz)) > cos(lights[i].Angle) )
 	{
 		Kd = max(dot(L[i], N), 0.0);
 		diffuse += Kd*lights[i].DiffuseProduct;
@@ -52,7 +54,7 @@ void main()
 	}
   }
 
-  gl_FragColor = ambient + diffuse + specular;
+  gl_FragColor = clamp(ambient + diffuse + specular,0.0,1.0);
   gl_FragColor.a = 1.0;
   gl_FragColor *= texture2D(Texture, vTex);
 } 
