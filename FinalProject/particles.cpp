@@ -85,7 +85,7 @@ mat4 Particles::physics(float seconds, int i) {
 
 bool Particles::customRender() {
   glEnable(GL_POINT_SMOOTH);
-  glPointSize(100.0);
+  glPointSize(20.0);
   // Buffer new particle locations
   prog->setBuffer(buffers[0],BUFFER_OFFSET(0),GL_FLOAT,
       vertexCount,points,"vPosition");

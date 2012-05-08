@@ -1,6 +1,8 @@
 {
   "models": [
     /*{
+      "type": "model",
+      "id": "sponge",
       "class": "Menger",
       "center": [0,0,0],
       "radius": 1,
@@ -10,7 +12,7 @@
       "type": "model",
       "id": "particles",
       "class": "Particles",
-      "number": 50
+      "number": 20
     },
     {
       "type": "model",
@@ -48,7 +50,7 @@
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
     },
-    /*{
+    {
       "type": "model",
       "id": "backdrop",
       "class": "ObjModel",
@@ -66,7 +68,7 @@
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
     },//*/
-    /*{
+    {
       "type": "model",
       "id": "bird1",
       "class": "ObjModel",
@@ -75,7 +77,7 @@
       "diffuse": [1,1,1,1],
       "specular": [1,1,1,1]
     },//*/
-    /*{
+    {
       "type": "model",
       "id": "machine",
       "class": "ObjModel",
@@ -129,7 +131,7 @@
       "ambient": [0.7,0.1,0.1,1],
       "diffuse": [0.5,0.2,0.2,1],
       "specular": [0.8,0.7,0.7,1]
-    }/*,
+    },
     {
       "type": "model",
       "class": "Sphere",
@@ -139,7 +141,7 @@
       "diffuse": [0.7,0.7,0.7,1],
       "specular": [1,1,1,1],
       "radius": 0.6
-    },
+    }/*,
     {
       "type": "model",
       "class": "Sphere",
@@ -208,6 +210,22 @@
       "theta": 0,
       "phi": 0
     },
+    /*{
+      "type": "orbit",
+      "center": "ruby_face",
+      "orbiter": "ruby_bow",
+      "distance": 1,
+      "theta": 0,
+      "phi": 0
+    },//*/
+    {
+      "type": "orbit",
+      "center": "wizard",
+      "orbiter": "metal",
+      "distance": 2,
+      "theta": 30,
+      "phi": 0
+    },
     {
       "type": "orbit",
       "center": "hat",
@@ -215,6 +233,13 @@
       "distance": 3.5,
       "theta": 0,
       "phi": 20
+    },
+    {
+      "type": "oscillate",
+      "object": "bird1",
+      "max": [3,0.5,0],
+      "rate": [0.05,0.01,0.0],
+      "center": [0,1,0]
     }
     /*, {
       "type": "oscillate",
