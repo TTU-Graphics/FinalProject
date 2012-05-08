@@ -23,20 +23,31 @@ void ControlledModel::step(float seconds) {
 //  std::cout<<ControlledModel::xSteps<<"\t"<<ControlledModel::zSteps<<std::endl;
 //  std::cout<<xLimit<<"\t"<<zLimit<<std::endl;;
 //  std::cout<<xDisplacement<<"\t"<<zDisplacement<<std::endl<<std::endl;;
-  if( abs(xDisplacement) <= xLimit )
+
+  x = speed*ControlledModel::xSteps;
+  y = speed*ControlledModel::ySteps;
+  z = speed*ControlledModel::zSteps;
+
+  if( abs(xDisplacement+x) <= xLimit )
   {
-	  x = speed*ControlledModel::xSteps;
 	  xDisplacement += x;
-  }
-  if( abs(yDisplacement) <= yLimit )
-  {	  
-	  y = speed*ControlledModel::ySteps;
-	  yDisplacement += y;
-  }
-  if( abs(zDisplacement) <= zLimit )
+  } else
   {
-	  z = speed*ControlledModel::zSteps;
+	  x=0;
+  }
+  if( abs(yDisplacement+y) <= yLimit )
+  {	  
+	  yDisplacement += y;
+  } else
+  {
+	  y=0;
+  }
+  if( abs(zDisplacement+z) <= zLimit )
+  {
 	  zDisplacement += z;
+  } else
+  {
+	  z=0;
   }
 
  

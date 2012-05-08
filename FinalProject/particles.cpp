@@ -32,8 +32,8 @@ void Particles::buildModel() {
   {
 	  points[i] = vec4(0,0,0,1);
 	  colors[i] = vec4((rand()*1.0)/(RAND_MAX*1.0),(rand()*1.0)/(RAND_MAX*1.0),(rand()*1.0)/(RAND_MAX*1.0),0.5);
-	  // Initial velocities are random on [-.5,.5]x[0,1]x[-.5,.5] to make a nice fountain effect
-	  velocity[i] = vec3((rand()*1.0)/(RAND_MAX*1.0)-0.5,(rand()*1.0)/(RAND_MAX*1.0),(rand()*1.0)/(RAND_MAX*1.0)-0.5);
+	  // Initial velocities are random on [-2,2]x[0,20]x[-2,2] to make a nice fountain effect
+	  velocity[i] = vec3(4*(rand()*1.0)/(RAND_MAX*1.0)-0.5,20*(rand()*1.0)/(RAND_MAX*1.0),4*(rand()*1.0)/(RAND_MAX*1.0)-0.5);
   }
 
   prog->setBuffer(buffers[0],BUFFER_OFFSET(0),GL_FLOAT,
@@ -56,13 +56,13 @@ void Particles::setModelView(mat4 mat) {
 }
 
 void Particles::step(float seconds) {
-	counter = (counter+1)%5;
+	counter = (counter+1)%10;
 	if( counter==0 && particles_to_display++ > vertexCount )
 	{
 		particles_to_display = vertexCount;
 	}
 
-	for( int i=0; i<vertexCount; i++ )
+	for( int i=0; i<particles_to_display; i++ )
 	{
 		if( abs(points[i].x) > 10 || abs(points[i].y) > 10 || abs(points[i].z) > 10 )
 		{
@@ -71,7 +71,7 @@ void Particles::step(float seconds) {
 			points[i].x = 0;
 			points[i].y = 0;
 			points[i].z = 0;
-			velocity[i].y = (rand()*1.0)/(RAND_MAX*1.0);
+			velocity[i].y = 20*(rand()*1.0)/(RAND_MAX*1.0);
 		}
 		points[i] = physics(seconds, i) * points[i];
 	}

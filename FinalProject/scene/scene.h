@@ -10,11 +10,13 @@
 #include "../texTri.h"
 #include "../objModel.h"
 #include "../Tesseract.h"
+#include "../particles.h"
 //animation
 #include "../animation/animation.h"
 #include "../animation/orbitalModel.h"
 #include "../animation/oscillatingModel.h"
 #include "../animation/controlledModel.h"
+#include "../animation/particlesModel.h"
 //light
 #include "../light.h"
 

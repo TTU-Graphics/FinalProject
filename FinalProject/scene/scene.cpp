@@ -200,12 +200,15 @@ void Scene::buildAnimation(Json::Value anim) {
 	  limit.x, limit.y, limit.z );
 	  animations.push_back(animation);
   }
+  else if(type.compare("physics") == 0) {
+  Animation* animation = new ParticlesModel( (Particles*)(idModels.find(anim["object"].asString())->second) );
+  animations.push_back(animation);
+  }
 }
 
 Model* Scene::buildModel(Json::Value model) {
   string type = model["class"].asString();
   Model *retModel;
-
   // menger
   if(type.compare("Menger") == 0) {
     vec3 center = getVec3(model.get("center", "[0,0,0]"));
@@ -260,6 +263,9 @@ Model* Scene::buildModel(Json::Value model) {
     tess->setLight((*it), light++);
     }
     retModel = tess;
+  } else if(type.compare("Particles") == 0) {
+    Particles *part = new Particles( model.get("number",50).asInt() );
+	retModel = part;
   }
 
   // map model if it has an id
